@@ -1,0 +1,124 @@
+{
+    "restaurants": [
+        {
+            "id": 1,
+            "name": "Noah's Bagle",
+            "category": [
+                "launch",
+                "dinner"
+            ],
+            "rating": 4.5,
+            "lat": -38.542904,
+            "lon": -58.710933
+        },
+        {
+            "id": 2,
+            "name": "La Pampa",
+            "category": [
+                "launch",
+                "dinner"
+            ],
+            "rating": 4.5,
+            "lat": -25.542904,
+            "lon": -58.710933
+        },
+        {
+            "id": 3,
+            "name": "Santa rosa",
+            "category": [
+                "launch",
+                "dinner"
+            ],
+            "rating": 4.5,
+            "lat": -13.542904,
+            "lon": -58.710933
+        }
+    ],
+    "menu": [
+        {
+            "id": 1,
+            "name": "donas",
+            "price": 25,
+            "category": [
+                "breakfast",
+                "dessert"
+            ],
+            "restaurantId": 1
+        },
+        {
+            "id": 2,
+            "name": "Milanesa",
+            "price": 1600,
+            "category": [
+                "launch",
+                "dinner"
+            ],
+            "restaurantId": 1
+        },
+        {
+            "id": 1,
+            "name": "Hamburguesa",
+            "price": 900,
+            "category": [
+                "launch",
+                "dinner"
+            ],
+            "restaurantId": 1
+        },
+        {
+            "id": 2,
+            "name": "Café con medialunas",
+            "price": 400,
+            "category": "breakfast",
+            "restaurantId": 2
+        },
+        {
+            "id": 1,
+            "name": "facturas",
+            "price": 100,
+            "category": [
+                "breakfast",
+                "meal"
+            ],
+            "restaurantId": 1
+        },
+        {
+            "id": 2,
+            "name": "Milanesa",
+            "price": 1600,
+            "category": "breakfast",
+            "restaurantId": 1
+        },
+        {
+            "id": 1,
+            "name": "donas",
+            "price": 25,
+            "category": "breakfast",
+            "restaurantId": 1
+        },
+        {
+            "id": 2,
+            "name": "Milanesa",
+            "price": 1600,
+            "category": "breakfast",
+            "restaurantId": 1
+        },
+        {
+            "id": 1,
+            "name": "donas",
+            "price": 25,
+            "category": "breakfast",
+            "restaurantId": 1
+        },
+        {
+            "id": 2,
+            "name": "Milanesa",
+            "price": 1600,
+            "category": "breakfast",
+            "restaurantId": 1
+        }
+    ],
+    "profile": {
+        "name": "typicode"
+    }
+}
