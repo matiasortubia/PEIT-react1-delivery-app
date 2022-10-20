@@ -1,0 +1,13 @@
+@media screen and (max-width: 767px) {
+    .wrapper {
+        display: grid;
+        position: relative;
+        justify-content: center;
+    }
+
+    .title {
+        font-size: 16px;
+        margin-left: 0.5rem;
+        line-height: 20px;
+    }
+}
