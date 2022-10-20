@@ -1,0 +1,38 @@
+@media screen and (max-width: 767px) {
+    .wrapper {
+        margin-top: 2rem;
+        padding-left: 2rem;
+        padding-right: 2rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .title {
+        font-size: 25px;
+    }
+
+    .restaurantsAvaible {
+        color: #798184;
+        padding-left: 2rem;
+        margin: 0px;
+    }
+
+    .cartItems {
+        color: #ffffff;
+        font-weight: medium;
+    }
+
+    .cartWrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #FECA57;
+        width: 60px;
+        height: 43px;
+        border-radius: 16px;
+        gap: 10px;
+    }
+
+
+}
