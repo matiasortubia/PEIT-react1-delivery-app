@@ -3,7 +3,7 @@ import { getRestaurants } from '../../services'
 import cartLogo from '../../assets/cart.svg'
 import styles from './header.module.css'
 
-const Header = () => {
+export const Header = () => {
     const [restaurants, setRestaurants] = React.useState([])
     // eslint-disable-next-line
     const [cart, setCart] = React.useState([])
@@ -30,5 +30,3 @@ const Header = () => {
         </>
     )
 }
-
-export default Header

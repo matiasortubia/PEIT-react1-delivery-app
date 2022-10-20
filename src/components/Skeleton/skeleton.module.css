@@ -1,0 +1,78 @@
+@media screen and (max-width: 767px) {
+    .wrapper {
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        width: 343px;
+        height: 211px;
+        position: relative;
+        background-color: #8F9698;
+        margin: 11px auto;
+        border-radius: 10px;
+        padding: 0.5rem 0;
+    }
+
+    .img {
+        content: "";
+        background-image: linear-gradient(90deg, #444, #999, #444, #444);
+        background-size: 200% 100%;
+        margin: 0 auto;
+        background-position: 100% 0;
+        border-radius: 10px;
+        width: 329px;
+        height: 132px;
+        animation: skeleton 2s linear infinite;
+        opacity: 0.7;
+    }
+
+    .title {
+        content: "";
+        background-image: linear-gradient(90deg, #444, #444, #999, #444);
+        background-size: 200% 100%;
+        background-position: 100% 0;
+        border-radius: 10px;
+        align-self: flex-start;
+        margin-left: .45rem;
+        margin-top: .2rem;
+        width: 329px;
+        height: 18px;
+        opacity: 0.7;
+        animation: skeleton 2s linear infinite;
+    }
+
+    .category {
+        content: "";
+        background-image: linear-gradient(90deg, #444, #999, #444, #444);
+        background-size: 200% 100%;
+        background-position: 100% 0;
+        border-radius: 10px;
+        align-self: flex-start;
+        margin-left: .45rem;
+        margin-top: .2rem;
+        width: 329px;
+        height: 18px;
+        opacity: 0.7;
+        animation: skeleton 2s linear infinite;
+    }
+
+    .rating {
+        content: "";
+        background-image: linear-gradient(90deg, #444, #999, #444, #444);
+        background-size: 200% 100%;
+        background-position: 100% 0;
+        border-radius: 10px;
+        align-self: flex-start;
+        margin-top: .2rem;
+        margin-left: .45rem;
+        width: 92px;
+        height: 18px;
+        opacity: 0.7;
+        animation: skeleton 2s linear infinite;
+    }
+
+    @keyframes skeleton {
+        100% {
+            background-position: -100% 0;
+        }
+    }
+}
