@@ -3,10 +3,6 @@
         {
             "id": 1,
             "name": "Noah's Bagle",
-            "category": [
-                "launch",
-                "dinner"
-            ],
             "rating": 4.5,
             "lat": -38.542904,
             "lon": -58.710933
@@ -14,10 +10,6 @@
         {
             "id": 2,
             "name": "La Pampa",
-            "category": [
-                "launch",
-                "dinner"
-            ],
             "rating": 4.5,
             "lat": -25.542904,
             "lon": -58.710933
@@ -25,13 +17,27 @@
         {
             "id": 3,
             "name": "Santa rosa",
-            "category": [
-                "launch",
-                "dinner"
-            ],
             "rating": 4.5,
             "lat": -13.542904,
             "lon": -58.710933
+        }
+    ],
+    "categories": [
+        {
+            "id": 1,
+            "name": "dinner"
+        },
+        {
+            "id": 2,
+            "name": "lunch"
+        },
+        {
+            "id": 3,
+            "name": "breakfast"
+        },
+        {
+            "id": 4,
+            "name": "dessert"
         }
     ],
     "menu": [
@@ -50,72 +56,78 @@
             "name": "Milanesa",
             "price": 1600,
             "category": [
-                "launch",
+                "lunch",
                 "dinner"
             ],
             "restaurantId": 1
         },
         {
-            "id": 1,
+            "id": 3,
             "name": "Hamburguesa",
             "price": 900,
             "category": [
-                "launch",
+                "lunch",
                 "dinner"
             ],
             "restaurantId": 1
         },
         {
-            "id": 2,
+            "id": 4,
             "name": "Café con medialunas",
             "price": 400,
             "category": "breakfast",
             "restaurantId": 2
         },
         {
-            "id": 1,
+            "id": 5,
             "name": "facturas",
             "price": 100,
             "category": [
                 "breakfast",
-                "meal"
+                "dessert"
             ],
-            "restaurantId": 1
+            "restaurantId": 2
         },
         {
-            "id": 2,
-            "name": "Milanesa",
-            "price": 1600,
-            "category": "breakfast",
-            "restaurantId": 1
+            "id": 6,
+            "name": "Helado",
+            "price": 1200,
+            "category": "dessert",
+            "restaurantId": 2
         },
         {
-            "id": 1,
-            "name": "donas",
+            "id": 7,
+            "name": "cono de papas",
             "price": 25,
-            "category": "breakfast",
-            "restaurantId": 1
+            "category": [
+                "lunch",
+                "dinner"
+            ],
+            "restaurantId": 3
         },
         {
-            "id": 2,
-            "name": "Milanesa",
-            "price": 1600,
+            "id": 8,
+            "name": "cafe con leche",
+            "price": 160,
             "category": "breakfast",
-            "restaurantId": 1
+            "restaurantId": 3
         },
         {
-            "id": 1,
-            "name": "donas",
-            "price": 25,
-            "category": "breakfast",
-            "restaurantId": 1
+            "id": 9,
+            "name": "lemon pie",
+            "price": 500,
+            "category": [
+                "breakfast",
+                "dessert"
+            ],
+            "restaurantId": 3
         },
         {
-            "id": 2,
-            "name": "Milanesa",
-            "price": 1600,
-            "category": "breakfast",
-            "restaurantId": 1
+            "id": 10,
+            "name": "chocotorta",
+            "price": 800,
+            "category": "dessert",
+            "restaurantId": 3
         }
     ],
     "profile": {
