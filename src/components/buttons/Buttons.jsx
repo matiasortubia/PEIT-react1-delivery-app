@@ -1,9 +1,29 @@
+import { useState } from "react";
+import "./buttons.css";
+
+export const Buttons = ({ name, href, image }) => {
+  const [isActive, setIsActive] = useState(true);
+
+  const handleIsActive = () => {
+    setIsActive((current) => !current);
+  };
+
+  const onActive = {
+    filter: "invert(60%) sepia(63%) saturate(448%) hue-rotate(139deg) brightness(91%) contrast(97%)"
+  };
+
+  const offActive = {
+    filter: "invert(90%) sepia(16%) saturate(0%) hue-rotate(278deg) brightness(87%) contrast(93%)"
+  };
 
 
-export const Buttons = ({name}) => {
-
+  
 
   return (
-    <button>{name}</button>
-  )
-}
+    <button className="buttonNavBar" onClick={handleIsActive}>
+      
+        <img src={image} style={isActive ? onActive : offActive} alt="" />
+      
+    </button>
+  );
+};
