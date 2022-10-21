@@ -19,6 +19,10 @@
   font-style: normal;
 }
 
+html {
+  font-size: 62.5%; /* 1rem = 10px (útil para el diseño responsive) */
+}
+
 body {
   margin: 0;
   font-family: "cera-pro", sans-serif;
