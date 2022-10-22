@@ -1,12 +1,10 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
-import { getRestaurants } from '../../services/getRestaurants.js';
-import magnifyingGlassIcon from './magnifying-glass-solid.svg';
+import magnifyingGlassIcon from '../../assets/magnifying-glass-solid.svg';
 import styles from './searchbar.module.css';
 
 function Searchbar(props) {
     const [input, setInput] = useState('');
-
     const [debouncedInput, setDebouncedInput] = useState(input);
 
     // Función debounce: añade un delay antes de realizar la búsqueda
@@ -14,24 +12,16 @@ function Searchbar(props) {
         const timer = setTimeout(() => setInput(debouncedInput), 1000);
         return () => clearTimeout(timer);
     }, [debouncedInput]);
-
-    const filterRestaurants = function (restaurants, inputText) {
-        const filteredRestaurants = restaurants.filter(el => {
-            return el.name.toLowerCase().includes(inputText.toLowerCase());
-        });
-        return filteredRestaurants;
-    };
     
+    const onSearchSubmit = props.onSearchSubmit;
+    const clearResults = props.clearResults;
+
     useEffect(() => {
         if(input !== '') {
-            getRestaurants().then(res => console.log(filterRestaurants(res, input)));
-
-            // Después se va a usar algo así:
-            // getRestaurants().then(res => filterRestaurants(res, input)).then(res => props.onChange(res));
+            onSearchSubmit(input);
         }
         else {
-            // props.onChange([]); // Se dejan de mostrar resultados
-            console.log([]);
+            clearResults();
         }
     }, [input]);
     
@@ -42,7 +32,7 @@ function Searchbar(props) {
                    placeholder="Search for a restaurant" 
                    value={ debouncedInput } 
                    onChange={ e => setDebouncedInput(e.target.value) } id="searchbarInput" />
-            <label for="searchbarInput">
+            <label htmlFor="searchbarInput">
                 <img className={ styles.magnifyingGlassIcon } 
                     src={ magnifyingGlassIcon }
                     alt="Magnifying glass icon" />
