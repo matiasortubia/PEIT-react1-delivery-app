@@ -1,25 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { createContext } from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { Home, Header } from './components/';
+import { Searchbar } from './components/searchbar/Searchbar';
+import { useGeolocation } from './hooks&aux/useGeolocation';
 
-function App() {
+export const LocationContext = createContext()
+
+export const App = () => {
+  const currentLocation = useGeolocation();
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <LocationContext.Provider value={currentLocation}>
+        <Header />
+        <Routes>
+          <Route path='/' element={<Home />} />
+          <Route path='*' element={<h1>404 Not Found</h1>} />
+        </Routes>
+      </LocationContext.Provider>
+    </Router>
   );
 }
 
-export default App;
+
