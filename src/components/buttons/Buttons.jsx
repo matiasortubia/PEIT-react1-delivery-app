@@ -1,47 +1,70 @@
 import { useEffect, useState } from "react";
 import "./buttons.css";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
-export const Buttons = ({ name , image, pressed, setPressed }) => {
+
+export const Buttons = ({ name, icon, pressed, setPressed }) => {
+  
   const [isActive, setIsActive] = useState(true);
 
-
+  const homeTitle = name==="home"?"home":null;
 
   const handleIsActive = () => {
-    
-    if(!isActive){
+
+    if (!isActive) {
       setIsActive(true);
       setPressed(name);
-    } else{
-      setIsActive(false);
-      setPressed(null);
-    }
     
+    }
+    //  else {
+    //   setIsActive(false);
+    //   setPressed(null);
+    // }
+
   };
 
   useEffect(() => {
-    name === pressed ? setIsActive(true) : setIsActive(false);
-  
-  }, [name , pressed])
-  
+    pressed === name ? setIsActive(true) : setIsActive(false);
+
+  }, [name, pressed])
 
 
 
   const onActive = {
-    filter: "invert(60%) sepia(63%) saturate(448%) hue-rotate(139deg) brightness(91%) contrast(97%)"
+
+    color: "#31B9CC",
+    height: "16px",
+    
+
   };
 
   const offActive = {
-    filter: "invert(90%) sepia(16%) saturate(0%) hue-rotate(278deg) brightness(87%) contrast(93%)"
+    color: "#C6C7CA",
+    height: "16px",
+    
+  };
+
+  const onActiveShadow = {
+    color: "#31B9CC",
+    backgroundColor: "#F1F2F6"
+    
+  };
+
+  const offActiveShadow = {
+    color: "#C6C7CA",
+    backgroundColor: "#FFFFFF"
+    
   };
 
 
-  
+
 
   return (
-    <button className="buttonNavBar" onClick={handleIsActive}>
-      
-        <img src={image} style={isActive ? onActive : offActive} alt="" />
-      
+    <button className="buttonNavBar" onClick={handleIsActive} style={isActive ? onActiveShadow : offActiveShadow}>
+
+      <FontAwesomeIcon className="iconNavBar" icon={icon} style={isActive ? onActive : offActive} />
+      <p>{ homeTitle }</p>
+
     </button>
   );
 };

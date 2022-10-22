@@ -1,10 +1,20 @@
 
   .navBar {
-    background: #ffffff;
+    background-color: #ffffff;
     position: fixed;
     bottom: 0;
     height: 63px;
     width: 100%;
     display: flex;
+    align-items: center;
     justify-content: space-around;
+    
   }
+
+  .navBar a{
+    text-decoration: none;
+    
+  }
+
+
+  
