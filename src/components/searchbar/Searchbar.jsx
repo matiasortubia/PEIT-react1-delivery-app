@@ -1,7 +1,7 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
 import { getRestaurants } from '../../services/getRestaurants.js';
-import magnifyingGlassIcon from '../../assets/magnifying-glass.svg';
+import magnifyingGlassIcon from './magnifying-glass-solid.svg';
 import styles from './searchbar.module.css';
 
 function Searchbar(props) {
@@ -36,15 +36,17 @@ function Searchbar(props) {
     }, [input]);
     
     return (
-        <div class={ styles.inputContainer }>
-            <input class={ styles.input }
+        <div className={ styles.searchbarContainer }>
+            <input className={ styles.input }
                    type="text" 
                    placeholder="Search for a restaurant" 
                    value={ debouncedInput } 
-                   onChange={ e => setDebouncedInput(e.target.value) } />
-            <img class="magnifying-glass-icon" 
-                 src={magnifyingGlassIcon}
-                 alt="Magnifying glass icon" />
+                   onChange={ e => setDebouncedInput(e.target.value) } id="searchbarInput" />
+            <label for="searchbarInput">
+                <img className={ styles.magnifyingGlassIcon } 
+                    src={ magnifyingGlassIcon }
+                    alt="Magnifying glass icon" />
+            </label>
         </div>
     );
 }
