@@ -1,12 +1,30 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./buttons.css";
 
-export const Buttons = ({ name, href, image }) => {
+export const Buttons = ({ name , image, pressed, setPressed }) => {
   const [isActive, setIsActive] = useState(true);
 
+
+
   const handleIsActive = () => {
-    setIsActive((current) => !current);
+    
+    if(!isActive){
+      setIsActive(true);
+      setPressed(name);
+    } else{
+      setIsActive(false);
+      setPressed(null);
+    }
+    
   };
+
+  useEffect(() => {
+    name === pressed ? setIsActive(true) : setIsActive(false);
+  
+  }, [name , pressed])
+  
+
+
 
   const onActive = {
     filter: "invert(60%) sepia(63%) saturate(448%) hue-rotate(139deg) brightness(91%) contrast(97%)"
@@ -27,3 +45,7 @@ export const Buttons = ({ name, href, image }) => {
     </button>
   );
 };
+
+
+
+//navlink
