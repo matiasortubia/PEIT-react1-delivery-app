@@ -1,7 +1,6 @@
 import React, { createContext } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { Home, Header } from './components/';
-import { Test } from './components/Test';
 import { useGeolocation } from './hooks&aux/useGeolocation';
 
 export const LocationContext = createContext()

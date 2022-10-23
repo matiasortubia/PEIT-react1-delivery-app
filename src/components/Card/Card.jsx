@@ -22,7 +22,7 @@ const Card = ({ product }) => {
     }, [product.restaurantId])
 
     return (
-        <div className={styles.wrapper}>
+        <div onBlur={() => { console.log('hola') }} className={styles.wrapper}>
             <img className={styles.img} src={product.img} alt={product.name} />
             {coords && <div className={styles.distance}><span className={styles.distanceText}>{getDistance(coords, restaurant[0])} km</span></div>}
             {restaurant.length > 0 && <h3 className={styles.title}>{restaurant[0].name}</h3>}
