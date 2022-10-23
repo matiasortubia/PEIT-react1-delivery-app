@@ -13,6 +13,10 @@ const Card = ({ product }) => {
 
     const coords = React.useContext(LocationContext)
 
+<<<<<<< HEAD
+=======
+    // console.log(coords, 'context')
+>>>>>>> 6196cfb709e7767712dc0fda038b9779ce63b730
     React.useEffect(() => {
         getRestaurants()
             .then(res => {
