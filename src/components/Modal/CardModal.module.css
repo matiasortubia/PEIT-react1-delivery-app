@@ -2,7 +2,7 @@
     display: flex;
     position: relative;
     z-index: 1;
-    scale: 1.2;
+    scale: 1.14;
     animation-name: activeCard;
     animation-duration: 1s;
 }

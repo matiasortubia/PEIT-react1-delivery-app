@@ -158,5 +158,75 @@
       "restaurantId": 3
     }
   ],
-  "cart": []
+  "cart": [
+    {
+      "id": 1,
+      "name": "donas",
+      "price": 25,
+      "rating": 99,
+      "category": [
+        "breakfast",
+        "dessert"
+      ],
+      "img": "https://th.bing.com/th/id/R.efa5f2d2f99535b34aca89283934d7f4?rik=CAmzLhynHzHTsQ&pid=ImgRaw&r=0",
+      "restaurantId": 1
+    },
+    {
+      "id": 2,
+      "name": "Milanesa",
+      "price": 1600,
+      "rating": 100,
+      "category": [
+        "lunch",
+        "dinner"
+      ],
+      "img": "https://vinomanos.com/wp-content/uploads/2019/09/Milanesa-perfecta.jpg",
+      "restaurantId": 1
+    },
+    {
+      "id": 3,
+      "name": "Hamburguesa",
+      "price": 900,
+      "rating": 30,
+      "category": [
+        "lunch",
+        "dinner"
+      ],
+      "img": "https://th.bing.com/th/id/R.45239b0e225c231bc173114a2869773d?rik=3j%2f35HmFiM%2bLGA&pid=ImgRaw&r=0",
+      "restaurantId": 1
+    },
+    {
+      "id": 4,
+      "name": "Café con medialunas",
+      "price": 400,
+      "rating": 80,
+      "category": [
+        "breakfast"
+      ],
+      "img": "https://mcdn.wallpapersafari.com/medium/42/80/4yhGSc.jpg",
+      "restaurantId": 2
+    },
+    {
+      "id": 6,
+      "name": "Helado",
+      "price": 1200,
+      "rating": 73,
+      "category": [
+        "dessert"
+      ],
+      "img": "https://th.bing.com/th/id/OIP.yi-mkZVCC4aIv4ce80diyAHaFL?pid=ImgDet&w=1000&h=700&rs=1",
+      "restaurantId": 2
+    },
+    {
+      "id": 8,
+      "name": "cafe con leche",
+      "price": 160,
+      "rating": 68,
+      "category": [
+        "breakfast"
+      ],
+      "img": "https://th.bing.com/th/id/OIP.cZH-p7DL3aLIHJmq6dyV3gHaE8?pid=ImgDet&rs=1",
+      "restaurantId": 3
+    }
+  ]
 }

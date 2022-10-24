@@ -5,15 +5,27 @@ import styles from './products.module.css'
 import { CardModal } from '../Modal/CardModal'
 
 
-export const Products = ({ arrayProduct }) => {
+export const Products = ({ arrayProduct, search }) => {
     const [opened, setOpened] = React.useState(null)
+    search?.length > 0 && (arrayProduct = arrayProduct.filter(e => e.restaurantId === search[0].id))
 
     return (
-        <div className={styles.wrapper}>
-            {getTitleByHour()}
-            {arrayProduct.map((e, i) => (
-                <CardModal key={e.id} id={i} opened={opened} setOpened={setOpened} product={e} card={<Card key={e.id} id={i} product={e} />} />
-            ))}
-        </div>
+        <>
+            {
+                search?.length > 0 ?
+                    <div className={styles.wrapper}>
+                        {getTitleByHour()}
+                        {arrayProduct.map((e, i) => (
+                            <CardModal key={e.id} id={i} opened={opened} setOpened={setOpened} product={e} card={<Card key={e.id} id={i} product={e} />} />
+                        ))}
+                    </div> :
+                    <div className={styles.wrapper}>
+                        {getTitleByHour()}
+                        {arrayProduct.map((e, i) => (
+                            <CardModal key={e.id} id={i} opened={opened} setOpened={setOpened} product={e} card={<Card key={e.id} id={i} product={e} />} />
+                        ))}
+                    </div>
+            }
+        </>
     )
 }

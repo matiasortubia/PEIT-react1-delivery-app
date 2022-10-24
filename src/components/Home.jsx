@@ -29,21 +29,19 @@ export const Home = () => {
             .then(res => filterResults(res, input))
             .then(results => {
                 setRestaurants(results);
-                setLoading(false); 
-                console.log(restaurants)
+                setLoading(false);
             });
     };
 
     const clearResults = () => {
         setRestaurants([]);
-        console.log(restaurants);
     };
 
     return (
         <div className={styles.wrapper}>
-            <Searchbar onSearchSubmit={ input => onSearchSubmit(input) }
-                       clearResults={ clearResults } />
-            {loading ? <> <Skeleton /> <Skeleton /> </> : <Products id='productList' arrayProduct={products} restaurants={restaurants} />}
+            <Searchbar onSearchSubmit={input => onSearchSubmit(input)}
+                clearResults={clearResults} />
+            {loading ? <> <Skeleton /> <Skeleton /> </> : <Products id='productList' arrayProduct={products} search={restaurants} />}
             {loadSkeleton && <><Skeleton /></>}
         </div>
     )
