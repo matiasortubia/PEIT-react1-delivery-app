@@ -3,20 +3,15 @@ import { useRating } from '../../hooks&aux/useRating'
 import styles from './card.module.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faDollarSign } from '@fortawesome/free-solid-svg-icons'
-import { getRestaurants, getCart } from '../../services'
+import { getRestaurants } from '../../services'
 import { LocationContext } from '../../App'
 import { getDistance } from '../../hooks&aux/getDistance'
 
 const Card = ({ product }) => {
     const rating = useRating(product.rating)
     const [restaurant, setRestaurant] = React.useState([])
-    // const [cart, setCart] = React.useState([])
 
     const coords = React.useContext(LocationContext)
-
-    // React.useEffect(()=>{
-    //     getCart().then((res)=>{const cart = res})
-    // },[])
 
     React.useEffect(() => {
         getRestaurants()
