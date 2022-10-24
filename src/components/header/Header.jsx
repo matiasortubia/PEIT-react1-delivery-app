@@ -1,12 +1,17 @@
 import React, { useEffect } from 'react'
-import { getRestaurants } from '../../services'
+import { getCart, getRestaurants } from '../../services'
 import cartLogo from '../../assets/cart.svg'
 import styles from './header.module.css'
 
 export const Header = () => {
     const [restaurants, setRestaurants] = React.useState([])
-    // eslint-disable-next-line
+
     const [cart, setCart] = React.useState([])
+
+    useEffect(() => {
+        getCart()
+            .then(res => setCart(res))
+    }, [])
 
     useEffect(() => {
         getRestaurants().then((res) => {
