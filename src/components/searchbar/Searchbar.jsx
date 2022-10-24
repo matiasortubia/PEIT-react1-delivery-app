@@ -7,7 +7,7 @@ function Searchbar(props) {
     const [input, setInput] = useState('');
     const [debouncedInput, setDebouncedInput] = useState(input);
 
-    // Función debounce: añade un delay antes de realizar la búsqueda
+    // Añade un delay antes de realizar la búsqueda
     useEffect(() => {
         const timer = setTimeout(() => setInput(debouncedInput), 1000);
         return () => clearTimeout(timer);

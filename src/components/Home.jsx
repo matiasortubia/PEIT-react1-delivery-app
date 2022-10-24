@@ -21,7 +21,7 @@ export const Home = () => {
                 setProducts(res)
                 setLoading(false)
             })
-    }, [])
+    }, []);
 
     const onSearchSubmit = async input => {
         setLoading(true);
@@ -30,13 +30,12 @@ export const Home = () => {
             .then(results => {
                 setRestaurants(results);
                 setLoading(false); 
-                console.log(restaurants)
             });
+            console.log(restaurants);
     };
 
     const clearResults = () => {
         setRestaurants([]);
-        console.log(restaurants);
     };
 
     return (
