@@ -24,6 +24,8 @@ export const Home = () => {
             })
     }, []);
 
+    /* Updates 'restaurants' state with results that include the user's input
+    @param input: searchbar input value */
     const onSearchSubmit = async input => {
         setLoading(true);
         getRestaurants()
@@ -32,7 +34,6 @@ export const Home = () => {
                 setRestaurants(results);
                 setLoading(false); 
             });
-            console.log(restaurants);
     };
 
     const clearResults = () => {
