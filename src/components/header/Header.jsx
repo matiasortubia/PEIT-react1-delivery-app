@@ -3,7 +3,7 @@ import { getCart, getRestaurants } from '../../services'
 import cartLogo from '../../assets/cart.svg'
 import styles from './header.module.css'
 
-export const Header = () => {
+export const Header = ({onClick}) => {
     const [restaurants, setRestaurants] = React.useState([])
 
     const [cart, setCart] = React.useState([])
@@ -19,12 +19,15 @@ export const Header = () => {
         })
     }, [])
 
+
+  
+
     return (
         <>
             <div className={styles.wrapper}>
                 <h1 className={styles.title}>What do you<br />have a taste for?</h1>
 
-                <div className={styles.cartWrapper}>
+                <div className={styles.cartWrapper} onClick={onClick}>
                     <img src={cartLogo} alt="cart logo" />
                     {cart.length > 0 && <span className={styles.cartItems}>{cart.length}</span>}
                 </div>

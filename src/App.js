@@ -1,17 +1,26 @@
-import React, { createContext } from 'react';
+import React, { createContext, useState  } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { Home, Header } from './components/';
 import { useGeolocation } from './hooks&aux/useGeolocation';
+import  ModalCart from './components/ModalCart/ModalCart.jsx'
 
 export const LocationContext = createContext()
 
 export const App = () => {
   const currentLocation = useGeolocation();
 
+  
+  const [openModal, setOpenModal] = useState(false);
+
+  const handleOpenModal = () =>{
+    setOpenModal(true);
+    
+  }
   return (
     <Router>
       <LocationContext.Provider value={currentLocation}>
-        <Header />
+        {openModal && <ModalCart closeModal={setOpenModal}/>}
+        <Header onClick={handleOpenModal} />
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='*' element={<h1>404 Not Found</h1>} />
