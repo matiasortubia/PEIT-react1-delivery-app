@@ -32,7 +32,7 @@ export const Home = () => {
             .then(res => filterResults(res, input))
             .then(results => {
                 setRestaurants(results);
-                setLoading(false); 
+                setLoading(false);
             });
     };
 
@@ -42,9 +42,9 @@ export const Home = () => {
 
     return (
         <div className={styles.wrapper}>
-            <Searchbar onSearchSubmit={ input => onSearchSubmit(input) }
-                       clearResults={ clearResults } />
-            {loading ? <> <Skeleton /> <Skeleton /> </> : <Products id='productList' arrayProduct={products} restaurants={restaurants} />}
+            <Searchbar onSearchSubmit={input => onSearchSubmit(input)}
+                clearResults={clearResults} />
+            {loading ? <> <Skeleton /> <Skeleton /> </> : <Products id='productList' arrayProduct={products} search={restaurants} />}
             {loadSkeleton && <><Skeleton /></>}
             <Navbar />
         </div>
