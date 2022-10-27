@@ -1,4 +1,4 @@
-import { Buttons } from "../buttons/Buttons";
+import { Buttons } from "../navButtons/Buttons";
 import './navbar.css';
 import { useState } from "react";
 import { Link } from "react-router-dom";
