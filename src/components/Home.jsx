@@ -5,7 +5,7 @@ import { getProducts, getRestaurants } from '../services'
 import styles from './home.module.css'
 import { useInfiniteScroll } from '../hooks&aux/useInfiniteScroll'
 import { filterResults } from '../hooks&aux/filterResults';
-import { Navbar } from './navbar/Navbar';
+
 
 
 export const Home = () => {
@@ -23,8 +23,10 @@ export const Home = () => {
                 setProducts(res)
                 setLoading(false)
             })
-    }, [])
+    }, []);
 
+    /* Updates 'restaurants' state with results that include the user's input
+    @param input: searchbar input value */
     const onSearchSubmit = async input => {
         setLoading(true);
         getRestaurants()
@@ -46,7 +48,7 @@ export const Home = () => {
                 clearResults={clearResults} />
             {loading ? <> <Skeleton /> <Skeleton /> </> : <Products id='productList' arrayProduct={products} search={restaurants} />}
             {loadSkeleton && <><Skeleton /></>}
-            <Navbar />
+            
         </div>
     )
 }
