@@ -1,4 +1,4 @@
-
+@media screen and (max-width: 767px) {
   .navBar {
     background-color: #ffffff;
     position: fixed;
@@ -18,4 +18,4 @@
   }
 
 
-  
+}

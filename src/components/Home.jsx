@@ -7,6 +7,7 @@ import { useInfiniteScroll } from '../hooks&aux/useInfiniteScroll'
 import { filterResults } from '../hooks&aux/filterResults';
 
 
+
 export const Home = () => {
 
     const [products, setProducts] = React.useState([])
@@ -41,6 +42,7 @@ export const Home = () => {
     };
 
     return (
+        
         <div className={styles.wrapper}>
             <Searchbar onSearchSubmit={input => onSearchSubmit(input)}
                 clearResults={clearResults} />
