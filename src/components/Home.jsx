@@ -22,8 +22,10 @@ export const Home = () => {
                 setProducts(res)
                 setLoading(false)
             })
-    }, [])
+    }, []);
 
+    /* Updates 'restaurants' state with results that include the user's input
+    @param input: searchbar input value */
     const onSearchSubmit = async input => {
         setLoading(true);
         getRestaurants()
