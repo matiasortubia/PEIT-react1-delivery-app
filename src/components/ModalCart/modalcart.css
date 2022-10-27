@@ -1,14 +1,15 @@
 @media screen and (max-width: 767px) {
   .modalBackground {
-    width: 100vw;
-    height: 100vh;
-    background: rgba(80, 80, 80, 0.163);
-    backdrop-filter: blur(2px);
-    position: fixed;
-    display:flex;
-    justify-content: center;
     align-items: flex-end;
-    z-index: 1;
+    backdrop-filter: blur(2px);
+    background: rgba(80, 80, 80, 0.163);
+    display:flex;
+    height: 100vh;
+    justify-content: center;
+    margin-top: -2rem;
+    position: fixed;
+    width: 100vw;
+    z-index: 3;
     
   }
 
