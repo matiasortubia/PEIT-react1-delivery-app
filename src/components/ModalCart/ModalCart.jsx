@@ -2,6 +2,7 @@ import React from 'react'
 import './modalcart.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faXmark } from '@fortawesome/free-solid-svg-icons'
+import { Address } from '../address/Address'
 
 function ModalCart({closeModal}) {
 
@@ -21,6 +22,7 @@ function ModalCart({closeModal}) {
             
             
             <div className='modalBody'>
+                <Address />
             {/* <Adress />
                 <Products />
                 <DeliveryFee />*/}  
