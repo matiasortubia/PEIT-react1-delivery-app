@@ -2,19 +2,21 @@ import React, { useEffect, useState } from 'react'
 import styles from './CardModal.module.css'
 import cartIcon from '../../assets/cart.svg'
 import { postCart } from '../../services'
+import { CartState } from '../../CartContext/CartContext'
 
 export const CardModal = ({ card, product, opened, setOpened, id }) => {
+
+  const { state: { cart }, dispatch } = CartState()
 
   const [modal, setModal] = useState(false)
   const [added, setAdded] = useState(false)
 
-  const doneAdd = (res) => {
-    if (res === 201) {
-      setAdded(true);
-      setModal(false);
-    }
-  }
+  /* Checking if the item is in the cart. */
+  useEffect(() => {
+    cart.map(item => item.id === product.id && setAdded(true))
+  }, [cart, product])
 
+  // checking if modal is open
   useEffect(() => {
     opened === id ? setModal(true) : setModal(false)
   }, [opened, id])
@@ -42,8 +44,12 @@ export const CardModal = ({ card, product, opened, setOpened, id }) => {
         <div className={styles.card}>
           <p onClick={() => { setModal(false); setOpened(null) }} className={styles.close}>X</p>
           {card}
-          <button onClick={() => { postCart(product).then(res => { doneAdd(res) }) }} className={styles.addToCart}>
-            Add
+          <button
+            onClick={() => {
+              postCart(product)
+                .then(() => { dispatch({ type: "ADD_TO_CART", payload: product }); setAdded(true); setModal(false) });
+            }}
+            className={styles.addToCart}>Add
             <img src={cartIcon}
               alt='cart logo' />
           </button>
