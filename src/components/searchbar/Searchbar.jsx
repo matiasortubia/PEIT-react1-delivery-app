@@ -37,9 +37,9 @@ function Searchbar(props) {
                 <input id="searchbarInput"
                     className={styles.input}
                     type="text"
-                    placeHolder="Search for a restaurant"
+                    placeholder="Search for a restaurant"
                     autoComplete="off"
-                    spellcheck="false"
+                    spellCheck="false"
                     value={debouncedInput}
                     onChange={e => setDebouncedInput(e.target.value)} />
 
