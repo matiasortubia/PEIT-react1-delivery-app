@@ -1,0 +1,30 @@
+.addressForm {
+    display: flex;
+    flex-flow: column nowrap;
+    max-width: 95%;
+}
+
+.addressForm label {
+    margin-right: 10px;
+}
+
+.addressForm input {
+    width: 48vw;
+    box-sizing: border-box;
+    
+}
+
+.addressForm input, button {
+    border-radius: 10px;
+    font: inherit;
+    height: 2.56rem; /* 41px */
+    padding: 13px 12px; /* Que coincida con el padding del searchbar */
+    gap: 10px;
+}
+
+.inputWrapper {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    margin-left: auto;
+}
