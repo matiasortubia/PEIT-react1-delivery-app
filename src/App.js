@@ -22,12 +22,10 @@ export const App = () => {
 
   /**** Address modal handlers ********/
   const openEditAddress = () => {
-      console.log("Edit address");
       setEditAddress(true);
   };
 
   const closeEditAddress = () => {
-      console.log("Close edit");
       setEditAddress(false);
   };
 
@@ -44,7 +42,7 @@ export const App = () => {
 
         {openModal && <ModalCart closeModal={setOpenModal} openEditAddress={openEditAddress}/>}
 
-        {editAddress && <AddressModal closeModal={closeEditAddress} onInfoSubmit={handleInfoSubmit} />}
+        {editAddress && <AddressModal closeModal={closeEditAddress} handleInfoSubmit={handleInfoSubmit} />}
 
         <Header onClick={handleOpenModal} />
         <Routes>
