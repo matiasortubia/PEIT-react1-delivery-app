@@ -10,17 +10,16 @@ export const LocationContext = createContext()
 export const App = () => {
   const currentLocation = useGeolocation();
 
-  
-  const [openModal, setOpenModal] = useState(false);
+  const [isOpenModal, setIsOpenModal] = useState(false)
 
   const handleOpenModal = () =>{
-    setOpenModal(true);
+    setIsOpenModal(true);
     
   }
   return (
     <Router>
       <LocationContext.Provider value={currentLocation}>
-        {openModal && <ModalCart closeModal={setOpenModal}/>}
+        <ModalCart isOpenModal={isOpenModal} setIsOpenModal={setIsOpenModal} />
         <Header onClick={handleOpenModal} />
         <Routes>
           <Route path='/' element={<Home />} />

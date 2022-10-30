@@ -5,11 +5,11 @@ import { useEffect, useRef } from 'react'
    */
 
 
-const useOutsideAlerter = (firstRef,closeModal) => {
+const useOutsideAlerter = (firstRef,setIsOpenModal) => {
 
     const handleClickOutside = (e) => {
         if (firstRef.current && !firstRef.current.contains(e.target)) {
-         closeModal(false);
+          setIsOpenModal(false);
         } 
       };
 
@@ -24,13 +24,13 @@ const useOutsideAlerter = (firstRef,closeModal) => {
 
 export const OutsideAlerter = (props) => {
 
-    const {closeModal} = props;
+    const {setIsOpenModal}  = props;
     const firstRef = useRef(null);
-    useOutsideAlerter(firstRef, closeModal);
+    useOutsideAlerter(firstRef, setIsOpenModal);
 
     
   return (
-    <div className="modalContainer" ref={firstRef} closeModal={closeModal} >
+    <div className="modalContainer" ref={firstRef} setIsOpenModal={setIsOpenModal} >
         {props.children}
     </div>
   )
