@@ -12,13 +12,13 @@ export const LocationContext = createContext()
 export const App = () => {
   /* A custom hook that is used to get the user's location. */
   const currentLocation = useGeolocation();
-  const [openModal, setOpenModal] = useState(false);
 
+  const [isOpenModal, setIsOpenModal] = useState(false)
   const [editAddress, setEditAddress] = useState(false);
 
   const handleOpenModal = () =>{
-    setOpenModal(true);
-  };
+    setIsOpenModal(true);
+  }
 
   /**** Address modal handlers ********/
   const openEditAddress = () => {
@@ -40,7 +40,7 @@ export const App = () => {
     <Router>
       <LocationContext.Provider value={currentLocation}>
 
-        {openModal && <ModalCart closeModal={setOpenModal} openEditAddress={openEditAddress}/>}
+        <ModalCart isOpenModal={isOpenModal} setIsOpenModal={setIsOpenModal} openEditAddress={openEditAddress} />
 
         {editAddress && <AddressModal closeModal={closeEditAddress} handleInfoSubmit={handleInfoSubmit} />}
 
