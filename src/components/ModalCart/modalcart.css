@@ -30,6 +30,7 @@
 
   .modalBackground.Open {
     bottom: 0;
+    touch-action:none;
   }
 
   .modalContainer {
