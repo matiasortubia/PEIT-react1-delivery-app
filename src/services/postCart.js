@@ -8,5 +8,5 @@ export const postCart = async (products) => {
         body: JSON.stringify(products)
     };
     const res = await fetch(`${url}/cart`, post);
-    return res.status;
+    return res;
 }

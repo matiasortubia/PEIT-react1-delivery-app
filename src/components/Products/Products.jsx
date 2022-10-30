@@ -7,7 +7,7 @@ import { CardModal } from '../Modal/CardModal'
 
 export const Products = ({ arrayProduct }) => {
     const [opened, setOpened] = React.useState(null)
-    // search?.length > 0 && (arrayProduct = arrayProduct.filter(e => e.restaurantId === search[0].id))
+
     return (
         <>
             {
