@@ -6,17 +6,16 @@ import styles from './home.module.css'
 import { useInfiniteScroll } from '../hooks&aux/useInfiniteScroll'
 import { filterResults } from '../hooks&aux/filterResults';
 
-
-
 export const Home = () => {
 
     const [products, setProducts] = React.useState([])
     const [loading, setLoading] = React.useState(true)
-    const [loadSkeleton, setLoadSkeleton] = React.useState(true)
+    const [loadSkeleton, setLoadSkeleton] = React.useState(null)
     const [restaurants, setRestaurants] = React.useState([]);
 
     useInfiniteScroll(getProducts, products, setProducts, setLoadSkeleton)
 
+    /*get all products & setting the products in state*/
     React.useEffect(() => {
         restaurants.length === 0 &&
             getProducts()
@@ -44,9 +43,6 @@ export const Home = () => {
                 .then(arrayProduct => setProducts(arrayProduct));
         setLoading(false)
     }, [restaurants])
-
-
-
 
     const clearResults = () => {
         setRestaurants([]);

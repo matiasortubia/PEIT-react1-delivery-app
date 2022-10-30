@@ -196,28 +196,6 @@
       "restaurantId": 1
     },
     {
-      "id": 4,
-      "name": "Café con medialunas",
-      "price": 400,
-      "rating": 80,
-      "category": [
-        "breakfast"
-      ],
-      "img": "https://mcdn.wallpapersafari.com/medium/42/80/4yhGSc.jpg",
-      "restaurantId": 2
-    },
-    {
-      "id": 6,
-      "name": "Helado",
-      "price": 1200,
-      "rating": 73,
-      "category": [
-        "dessert"
-      ],
-      "img": "https://th.bing.com/th/id/OIP.yi-mkZVCC4aIv4ce80diyAHaFL?pid=ImgDet&w=1000&h=700&rs=1",
-      "restaurantId": 2
-    },
-    {
       "id": 8,
       "name": "cafe con leche",
       "price": 160,
