@@ -1,15 +1,36 @@
 @media screen and (max-width: 767px) {
+
+  .Overlay {
+    backdrop-filter: blur(2px);
+    background-color: rgba(80, 80, 80, 0.163);
+    bottom: 0;
+    display: none;
+    left: 0;
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: 5;
+  }
+
+  .Overlay.Show {
+    display: inline;
+  }
+
   .modalBackground {
     align-items: flex-end;
-    backdrop-filter: blur(2px);
-    background: rgba(80, 80, 80, 0.163);
+    bottom: -150vh;
     display: flex;
     height: 100vh;
     justify-content: center;
-    margin-top: -2rem;
     position: fixed;
+    transition: all 0.3s ease-out;
     width: 100vw;
-    z-index: 3;
+    z-index: 10;
+  }
+
+  .modalBackground.Open {
+    bottom: 0;
+    touch-action: none;
   }
 
   .modalContainer {
