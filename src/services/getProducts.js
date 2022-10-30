@@ -17,10 +17,15 @@ const nextPage = async (res) => {
     }
 }
 
-export const getProducts = async (next) => {
+export const getProducts = async (next, completeList) => {
     const url = process.env.REACT_APP_API_URL;
     const res = await fetch(`${url}/products?_page=${initialPage}&_limit=3`);
-    if (!next) {
+    if (!next && !completeList) {
+        const products = await res.json();
+        return products;
+    }
+    if (completeList && !next) {
+        const res = await fetch(`${url}/products`);
         const products = await res.json();
         return products;
     }
