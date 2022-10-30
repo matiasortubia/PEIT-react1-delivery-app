@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faXmark } from '@fortawesome/free-solid-svg-icons'
 import { Address } from '../address/Address'
 
-function ModalCart({closeModal}) {
+function ModalCart({closeModal, openEditAddress}) {
 
     const closeButton = () =>{
         closeModal(false);
@@ -22,9 +22,8 @@ function ModalCart({closeModal}) {
             
             
             <div className='modalBody'>
-                <Address />
-            {/* <Adress />
-                <Products />
+                <Address openEditAddress={openEditAddress} />
+            {/* <Products />
                 <DeliveryFee />*/}  
             </div>
             <div className='modalFooter'>

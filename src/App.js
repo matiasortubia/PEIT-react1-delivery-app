@@ -5,22 +5,46 @@ import { useGeolocation } from './hooks&aux/useGeolocation';
 import  ModalCart from './components/ModalCart/ModalCart.jsx'
 import { Navbar } from './components/navbar/Navbar.jsx'
 
+import { AddressModal } from './components/addressModal/AddressModal.jsx';
+
 export const LocationContext = createContext()
 
 export const App = () => {
   const currentLocation = useGeolocation();
-
-  
   const [openModal, setOpenModal] = useState(false);
+
+  const [editAddress, setEditAddress] = useState(false);
 
   const handleOpenModal = () =>{
     setOpenModal(true);
-    
-  }
+  };
+
+  /**** Address modal handlers ********/
+  const openEditAddress = () => {
+      console.log("Edit address");
+      setEditAddress(true);
+  };
+
+  const closeEditAddress = () => {
+      console.log("Close edit");
+      setEditAddress(false);
+  };
+
+  const handleInfoSubmit = (e) => {
+    e.preventDefault();
+    setEditAddress(false);
+    console.log("Delivery info saved.");
+};
+/* ************************************* */
+  
   return (
     <Router>
       <LocationContext.Provider value={currentLocation}>
-        {openModal && <ModalCart closeModal={setOpenModal}/>}
+
+        {openModal && <ModalCart closeModal={setOpenModal} openEditAddress={openEditAddress}/>}
+
+        {editAddress && <AddressModal closeModal={closeEditAddress} onInfoSubmit={handleInfoSubmit} />}
+
         <Header onClick={handleOpenModal} />
         <Routes>
           <Route path='/' element={<Home />} />

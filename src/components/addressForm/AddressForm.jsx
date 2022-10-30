@@ -4,31 +4,39 @@ import styles from './addressForm.module.css';
 const AddressForm = (props) => {
 
     return (
-            <form className={ styles.addressForm } 
-                  onSubmit={ props.handleInfoSubmit }>
-                <div className={ styles.inputWrapper } >
-                    <label htmlFor="addressInput">Address</label>
-                    <input type="text" 
-                           placeholder="Example St. 123" 
-                           id="addressInput"
-                           name="address" />
-                </div>
-                <div className={ styles.inputWrapper } >
-                    <label htmlFor="apartmentInput">Floor/Apartment</label>
-                    <input type="text" 
-                           placeholder="Floor / Apartment number" 
-                           id="apartmentInput"
-                           name="aparment" />
-                </div>
-                <div className={ styles.inputWrapper }>
-                    <label htmlFor="extraInfoInput">Indications for delivery</label>
-                    <input type="text"  
-                           id="extraInfoInput"
-                           name="extraInfo" />
-                    
-                </div>
-                <button type="submit" onClick={ e => e.preventDefault }>Save</button>
-            </form>
+        <form className={ styles.addressForm } 
+              onSubmit={props.handleInfoSubmit}>
+            <div className={ styles.inputWrapper } >
+                <label htmlFor="addressInput">Address</label>
+                <input type="text" 
+                       placeholder="Example St. 1234" 
+                       id="addressInput"
+                       name="address"
+                       autoComplete="off"
+                       spellCheck="false" />
+            </div>
+            <div className={ styles.inputWrapper } >
+                <label htmlFor="apartmentInput">Floor/Apartment</label>
+                <input type="text" 
+                       placeholder="1st floor, ap. A" 
+                       id="apartmentInput"
+                       name="aparment" 
+                       autoComplete="off"
+                       spellCheck="false"/>
+            </div>
+            <div className={ styles.inputWrapper }>
+                <label htmlFor="extraInfoInput">Extra information</label>
+                <input type="text"  
+                       id="extraInfoInput"
+                       name="extraInfo" 
+                       autoComplete="off"
+                       spellCheck="false"/>
+                
+            </div>
+            <button className={styles.formSubmit}
+                    type="submit"
+                    onClick={e => e.preventDefault()}>Save</button>
+        </form>
     );    
     
     /*
