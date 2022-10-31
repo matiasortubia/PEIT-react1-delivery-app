@@ -16,6 +16,12 @@ export const App = () => {
   const [isOpenModal, setIsOpenModal] = useState(false)
   const [isAddressEditOn, setIsAddressEditOn] = useState(false);
 
+  /* User info: */
+  const [userAddress, setUserAddress] = useState("624 Mapple Ave");
+  const [userApartment, setUserApartment] = useState("");
+  const [userExtraInfo, setUserExtraInfo] = useState(""); 
+  /* *********** */
+
   const handleOpenModal = () =>{
     setIsOpenModal(true);
   }
@@ -26,6 +32,7 @@ export const App = () => {
 
   const handleInfoSubmit = (address, apartment, extraInfo) => {
     console.log(address, apartment, extraInfo);
+    setUserAddress(address);
     setIsAddressEditOn(false);
   };
 
@@ -39,10 +46,15 @@ export const App = () => {
     <Router>
       <LocationContext.Provider value={currentLocation}>
 
-        {!isAddressEditOn && <ModalCart isOpenModal={isOpenModal} setIsOpenModal={setIsOpenModal} openEditAddress={openEditAddress} />}
+        {!isAddressEditOn && <ModalCart isOpenModal={isOpenModal} 
+                                        setIsOpenModal={setIsOpenModal} 
+                                        openEditAddress={openEditAddress}
+                                        userInfo={userAddress} />}
         {/*<ModalCart isOpenModal={isOpenModal} setIsOpenModal={setIsOpenModal} openEditAddress={openEditAddress} />*/}
 
-        <AddressModal isAddressEditOn={isAddressEditOn} setIsAddressEditOn={setIsAddressEditOn} handleInfoSubmit={handleInfoSubmit} />
+        <AddressModal isAddressEditOn={isAddressEditOn} 
+                      setIsAddressEditOn={setIsAddressEditOn} 
+                      handleInfoSubmit={handleInfoSubmit} />
 
         <Header onClick={handleOpenModal} />
         <Routes>

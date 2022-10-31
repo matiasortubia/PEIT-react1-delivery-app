@@ -5,7 +5,7 @@ import { faXmark } from "@fortawesome/free-solid-svg-icons";
 import { OutsideAlerter } from "./OutsideAlerter.jsx";
 import { Address } from '../address/Address'
 
-function ModalCart({ isOpenModal, setIsOpenModal, firstRef, openEditAddress }) {
+function ModalCart({ isOpenModal, setIsOpenModal, firstRef, openEditAddress, userInfo}) {
 
   const closeButton = () => {
     setIsOpenModal(false);
@@ -31,7 +31,7 @@ function ModalCart({ isOpenModal, setIsOpenModal, firstRef, openEditAddress }) {
           </div>
 
           <div className="modalBody">
-            <Address openEditAddress={openEditAddress} />
+            <Address openEditAddress={openEditAddress} userInfo={userInfo} />
             {/*
                 <Products />
                 <DeliveryFee />*/}

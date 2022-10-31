@@ -1,4 +1,6 @@
 .addressBox {
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
     box-sizing: border-box;
     list-style: none;
     background: #FECA57;
@@ -9,7 +11,7 @@
     display: grid;
     /*grid-template-rows: 24px 24px;*/
     row-gap: 24px;
-    grid-template-columns: 110px 110px;
+    grid-template-columns: auto 110px;
 
     justify-content: space-between;
     align-content: space-between;

@@ -39,6 +39,7 @@ const AddressForm = ({handleInfoSubmit}) => {
             <div className={ styles.inputWrapper }>
                 <label htmlFor="extraInfoInput">Extra information</label>
                 <input type="text"  
+                       placeholder="Ex: Flat on a corner"
                        id="extraInfoInput"
                        name="extraInfo" 
                        autoComplete="off"
