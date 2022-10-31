@@ -5,6 +5,7 @@ import { faXmark } from "@fortawesome/free-solid-svg-icons";
 import { OutsideAlerter } from "./OutsideAlerter.jsx";
 import { CartProducts } from './CartProducts';
 import { Fee } from './Fee';
+import { TotalPrice } from "./TotalPrice";
 
 
 function ModalCart({ isOpenModal, setIsOpenModal, firstRef }) {
@@ -39,6 +40,7 @@ function ModalCart({ isOpenModal, setIsOpenModal, firstRef }) {
                 <DeliveryFee />*/}
             <CartProducts />
             <Fee />
+            <TotalPrice />
           </div>
           <div className="modalFooter">
             {/*  <Total />
