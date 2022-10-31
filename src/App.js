@@ -1,4 +1,4 @@
-import React, { createContext, useState } from 'react';
+import React, { createContext, useEffect, useState } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { Home, Header } from './components/';
 import { useGeolocation } from './hooks&aux/useGeolocation';
@@ -28,12 +28,19 @@ export const App = () => {
     e.preventDefault();
     setIsAddressEditOn(false);
   };
+
+/*
+  useEffect(() => {
+    const timer = setTimeout(() => setIsOpenModal(!isOpenModal), 1000);
+    return () => clearTimeout(timer);
+  }, [isAddressEditOn]);*/
   
   return (
     <Router>
       <LocationContext.Provider value={currentLocation}>
 
-        <ModalCart isOpenModal={isOpenModal} setIsOpenModal={setIsOpenModal} openEditAddress={openEditAddress} />
+        {!isAddressEditOn && <ModalCart isOpenModal={isOpenModal} setIsOpenModal={setIsOpenModal} openEditAddress={openEditAddress} />}
+        {/*<ModalCart isOpenModal={isOpenModal} setIsOpenModal={setIsOpenModal} openEditAddress={openEditAddress} />*/}
 
         <AddressModal isAddressEditOn={isAddressEditOn} setIsAddressEditOn={setIsAddressEditOn} handleInfoSubmit={handleInfoSubmit} />
 
