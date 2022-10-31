@@ -3,17 +3,19 @@ import "./modalcart.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
 import { OutsideAlerter } from "./OutsideAlerter.jsx";
+import { Address } from '../address/Address'
 import { CartProducts } from './CartProducts';
 import { Fee } from './Fee';
 import { TotalPrice } from "./TotalPrice";
 
 
-function ModalCart({ isOpenModal, setIsOpenModal, firstRef }) {
+
+function ModalCart({ isOpenModal, setIsOpenModal, firstRef, openEditAddress, userInfo}) {
+
 
   const closeButton = () => {
     setIsOpenModal(false);
   };
-
 
   return (
     <>
@@ -35,7 +37,8 @@ function ModalCart({ isOpenModal, setIsOpenModal, firstRef }) {
           </div>
 
           <div className="modalBody">
-            {/* <Adress />
+            <Address openEditAddress={openEditAddress} userInfo={userInfo} />
+            {/*
                 <Products />
                 <DeliveryFee />*/}
             <CartProducts />

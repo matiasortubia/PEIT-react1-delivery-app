@@ -33,15 +33,15 @@ function Searchbar(props) {
 
     return (
         <div className={styles.searchbarContainer}>
-            <div className={styles.searchbar}>
-                <input id="searchbarInput"
-                    className={styles.input}
-                    type="text"
-                    placeholder="Search for a restaurant"
+            <div className={ styles.searchbar }>
+                <input id="searchbarInput" 
+                    className={ styles.input }
+                    type="text" 
+                    placeholder="Search for a restaurant" 
                     autoComplete="off"
                     spellCheck="false"
-                    value={debouncedInput}
-                    onChange={e => setDebouncedInput(e.target.value)} />
+                    value={ debouncedInput } 
+                    onChange={ e => setDebouncedInput(e.target.value) } />
 
                 <label htmlFor="searchbarInput"> {
                     debouncedInput === '' ?
