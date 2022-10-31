@@ -14,27 +14,20 @@ export const App = () => {
   const currentLocation = useGeolocation();
 
   const [isOpenModal, setIsOpenModal] = useState(false)
-  const [editAddress, setEditAddress] = useState(false);
+  const [isAddressEditOn, setIsAddressEditOn] = useState(false);
 
   const handleOpenModal = () =>{
     setIsOpenModal(true);
   }
 
-  /**** Address modal handlers ********/
   const openEditAddress = () => {
-      setEditAddress(true);
-  };
-
-  const closeEditAddress = () => {
-      setEditAddress(false);
+    setIsAddressEditOn(true);
   };
 
   const handleInfoSubmit = (e) => {
     e.preventDefault();
-    setEditAddress(false);
-    console.log("Delivery info saved.");
-};
-/* ************************************* */
+    setIsAddressEditOn(false);
+  };
   
   return (
     <Router>
@@ -42,7 +35,7 @@ export const App = () => {
 
         <ModalCart isOpenModal={isOpenModal} setIsOpenModal={setIsOpenModal} openEditAddress={openEditAddress} />
 
-        {editAddress && <AddressModal closeModal={closeEditAddress} handleInfoSubmit={handleInfoSubmit} />}
+        <AddressModal isAddressEditOn={isAddressEditOn} setIsAddressEditOn={setIsAddressEditOn} handleInfoSubmit={handleInfoSubmit} />
 
         <Header onClick={handleOpenModal} />
         <Routes>

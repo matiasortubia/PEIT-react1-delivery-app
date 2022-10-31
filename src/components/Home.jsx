@@ -45,9 +45,6 @@ export const Home = () => {
         setLoading(false)
     }, [restaurants])
 
-
-
-
     const clearResults = () => {
         setRestaurants([]);
     };
