@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
 import { OutsideAlerter } from "./OutsideAlerter.jsx";
 import { Address } from '../address/Address'
+import { CartProducts } from './CartProducts';
 
 function ModalCart({ isOpenModal, setIsOpenModal, firstRef, openEditAddress, userInfo}) {
 
@@ -35,6 +36,7 @@ function ModalCart({ isOpenModal, setIsOpenModal, firstRef, openEditAddress, use
             {/*
                 <Products />
                 <DeliveryFee />*/}
+            <CartProducts />
           </div>
           <div className="modalFooter">
             {/*  <Total />
