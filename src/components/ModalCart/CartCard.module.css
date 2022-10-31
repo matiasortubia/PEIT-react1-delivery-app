@@ -1,12 +1,11 @@
 @media screen and (max-width: 767px) {
 
-    .cardWrapper {
+    .cardWrapper section p img div {
         width: auto;
         height: 8vh;
         display: flex;
-        overflow-y: hidden;
-        overflow-x: auto;
-        touch-action: none;
+        touch-action: auto;
+        overflow-y: scroll;
     }
 
     .section {

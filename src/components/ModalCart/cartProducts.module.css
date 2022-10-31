@@ -2,4 +2,13 @@
     display: flex;
     flex-direction: column;
     gap: 10px;
+    max-height: 35%;
+    position: absolute;
+    bottom: 21vh;
+    overflow-y: scroll;
+}
+
+.wrapper img div p {
+    touch-action: pan-y;
+    overflow-y: scroll;
 }

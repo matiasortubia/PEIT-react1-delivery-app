@@ -1,9 +1,10 @@
 .wrapper {
     display: flex;
     align-items: center;
-    margin: 24px 0 10px 15px;
-    position: relative;
-    top: 35vh;
+    margin: 0 0 0 15px;
+    position: absolute;
+    bottom: 13vh;
+    width: 100%;
 }
 
 .imgBg {
@@ -21,7 +22,7 @@
     font-size: 14px;
     font-weight: bold;
     color: #0A191E;
-    width: 55vw;
+    width: 52vw;
 }
 
 .fee {

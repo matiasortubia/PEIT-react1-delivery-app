@@ -6,6 +6,7 @@ import { OutsideAlerter } from "./OutsideAlerter.jsx";
 import { CartProducts } from './CartProducts';
 import { Fee } from './Fee';
 import { TotalPrice } from "./TotalPrice";
+import { PlaceOrderButton } from "./PlaceOrderButton";
 
 
 function ModalCart({ isOpenModal, setIsOpenModal, firstRef }) {
@@ -33,19 +34,11 @@ function ModalCart({ isOpenModal, setIsOpenModal, firstRef }) {
           <div className="modalTitle">
             <h1>Your Order</h1>
           </div>
-
-          <div className="modalBody">
-            {/* <Adress />
-                <Products />
-                <DeliveryFee />*/}
-            <CartProducts />
-            <Fee />
-            <TotalPrice />
-          </div>
-          <div className="modalFooter">
-            {/*  <Total />
-                <PlaceOrder />*/}
-          </div>
+          {/* <Adress />*/}
+          <CartProducts />
+          <Fee />
+          <TotalPrice />
+          <PlaceOrderButton />
         </OutsideAlerter>
       </div>
     </>
