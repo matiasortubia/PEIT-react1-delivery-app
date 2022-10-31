@@ -12,7 +12,7 @@ export const Fee = () => {
                 <img src={deliveryFee} alt='delivery' />
             </div>
             <p className={styles.text}>Delivery Fee</p>
-            {fee ? <p className={styles.fee}>${fee}</p> : <p className={styles.fee}>$$$</p>}
+            {fee ? <p className={styles.fee}>$ {fee}</p> : <p className={styles.fee}> $ 0</p>}
         </section>
     )
 }

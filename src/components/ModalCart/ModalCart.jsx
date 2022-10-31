@@ -1,4 +1,3 @@
-import { useRef, useEffect } from "react";
 import "./modalcart.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
