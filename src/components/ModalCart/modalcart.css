@@ -30,7 +30,7 @@
 
   .modalBackground.Open {
     bottom: 0;
-    touch-action:none;
+    touch-action: none;
   }
 
   .modalContainer {
@@ -43,6 +43,7 @@
     flex-direction: column;
     padding: 10px;
   }
+
   .closeButton {
     align-self: flex-end;
     padding-top: 20px;
@@ -50,6 +51,7 @@
     width: 20px;
     height: 20px;
   }
+
   .modalTitle {
     font-weight: bold;
     padding-left: 20px;

@@ -13,7 +13,7 @@ export const CardModal = ({ card, product, opened, setOpened, id }) => {
 
   /* Checking if the item is in the cart. */
   useEffect(() => {
-    cart.map(item => item.id === product.id && setAdded(true))
+    cart.find(({ id }) => id === product.id) ? setAdded(true) : setAdded(false)
   }, [cart, product])
 
   // checking if modal is open
@@ -47,7 +47,7 @@ export const CardModal = ({ card, product, opened, setOpened, id }) => {
           <button
             onClick={() => {
               postCart(product)
-                .then(() => { dispatch({ type: "ADD_TO_CART", payload: product }); setAdded(true); setModal(false) });
+                .then(() => { dispatch({ type: "ADD_TO_CART", payload: product }); setModal(false) });
             }}
             className={styles.addToCart}>Add
             <img src={cartIcon}
