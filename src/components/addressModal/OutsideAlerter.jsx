@@ -1,14 +1,12 @@
 import { useEffect, useRef } from 'react'
 
-  /*
-    Hook that alerts clicks outside of the passed ref
-   */
+  /* Hook that alerts clicks outside of the passed ref */
 
-const useOutsideAlerter = (firstRef,setIsOpenModal) => {
+const useOutsideAlerter = (firstRef, setIsAddressEditOn) => {
 
     const handleClickOutside = (e) => {
         if (firstRef.current && !firstRef.current.contains(e.target)) {
-          setIsOpenModal(false);
+          setIsAddressEditOn(false);
         } 
       };
 
@@ -23,15 +21,14 @@ const useOutsideAlerter = (firstRef,setIsOpenModal) => {
 
 export const OutsideAlerter = (props) => {
 
-    const {setIsOpenModal}  = props;
+    const {setIsAddressEditOn}  = props;
     const firstRef = useRef(null);
-    useOutsideAlerter(firstRef, setIsOpenModal);
+    useOutsideAlerter(firstRef, setIsAddressEditOn);
 
     
   return (
-    <div className="modalContainer" ref={firstRef} setIsOpenModal={setIsOpenModal} >
+    <div className="modalContainer" ref={firstRef} setIsAddressEditOn={setIsAddressEditOn} >
         {props.children}
     </div>
   )
 }
-

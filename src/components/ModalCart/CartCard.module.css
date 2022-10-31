@@ -16,7 +16,7 @@
         margin-left: 1rem;
         font-family: 'Roboto', sans-serif;
         gap: 10px;
-        touch-action: pan-x;
+        touch-action: pan-y;
         margin-right: 1rem;
     }
 
