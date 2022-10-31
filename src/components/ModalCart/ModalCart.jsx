@@ -7,10 +7,11 @@ import { Address } from '../address/Address'
 import { CartProducts } from './CartProducts';
 import { Fee } from './Fee';
 import { TotalPrice } from "./TotalPrice";
+import { PlaceOrderButton } from "./PlaceOrderButton";
 
 
 
-function ModalCart({ isOpenModal, setIsOpenModal, firstRef, openEditAddress, userInfo}) {
+function ModalCart({ isOpenModal, setIsOpenModal, firstRef, openEditAddress, userInfo }) {
 
 
   const closeButton = () => {
@@ -35,20 +36,11 @@ function ModalCart({ isOpenModal, setIsOpenModal, firstRef, openEditAddress, use
           <div className="modalTitle">
             <h1>Your Order</h1>
           </div>
-
-          <div className="modalBody">
-            <Address openEditAddress={openEditAddress} userInfo={userInfo} />
-            {/*
-                <Products />
-                <DeliveryFee />*/}
-            <CartProducts />
-            <Fee />
-            <TotalPrice />
-          </div>
-          <div className="modalFooter">
-            {/*  <Total />
-                <PlaceOrder />*/}
-          </div>
+          <Address setIsOpenModal={setIsOpenModal} openEditAddress={openEditAddress} userInfo={userInfo} />
+          <CartProducts />
+          <Fee />
+          <TotalPrice />
+          <PlaceOrderButton />
         </OutsideAlerter>
       </div>
     </>

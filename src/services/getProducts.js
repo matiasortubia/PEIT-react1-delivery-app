@@ -31,3 +31,10 @@ export const getProducts = async (next, completeList) => {
     }
     return nextPage(res);
 }
+
+export const getProductCategory = async (category) => {
+    const url = process.env.REACT_APP_API_URL;
+    const res = await fetch(`${url}/products?q=${category}`);
+    const products = await res.json();
+    return products;
+}

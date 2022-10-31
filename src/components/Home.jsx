@@ -1,6 +1,5 @@
 import React from 'react'
-import { Products, Skeleton } from './index'
-import { Searchbar } from './index';
+import { Searchbar, Categories, Products, Skeleton } from './index';
 import { getProducts, getRestaurants } from '../services'
 import styles from './home.module.css'
 import { useInfiniteScroll } from '../hooks&aux/useInfiniteScroll'
@@ -53,6 +52,7 @@ export const Home = () => {
         <div className={styles.wrapper}>
             <Searchbar onSearchSubmit={input => onSearchSubmit(input)}
                 clearResults={clearResults} />
+            <Categories products={products} setProducts={setProducts} setLoading={setLoading} />
             {loading ? <> <Skeleton /> <Skeleton /> </> : <Products id='productList' arrayProduct={products} search={restaurants} />}
             {loadSkeleton && <><Skeleton /></>}
 

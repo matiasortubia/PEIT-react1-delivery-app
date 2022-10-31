@@ -7,37 +7,36 @@ import '../ModalCart/modalcart.css';
 import { OutsideAlerter } from "./OutsideAlerter.jsx";
 import { AddressForm } from '../addressForm/AddressForm.jsx'
 
-function AddressModal({ isAddressEditOn, setIsAddressEditOn, firstRef, handleInfoSubmit }) {
+function AddressModal({ isAddressEditOn, setIsOpenModal, setIsAddressEditOn, firstRef, handleInfoSubmit }) {
 
-    const closeButton = () => {
-      setIsAddressEditOn(false);
-    };
-  
-    return (
-      <>
-        <div
-          className={`Overlay ${isAddressEditOn ? "Show" : ""}`}
-          onClick={() => setIsOpenModal(!isAddressEditOn)}>
-  
-        </div>
-        <div className={`modalBackground ${isAddressEditOn ? "Open" : ""}`}>
-          <OutsideAlerter ref={firstRef} setIsAddressEditOn={setIsAddressEditOn}>
-            <FontAwesomeIcon
-              icon={faXmark}
-              className="closeButton"
-              onClick={closeButton}
-            />
-  
-            <div className='modalTitle'>
-                <h1>Change address</h1>
-            </div>
-  
-            <AddressForm handleInfoSubmit={ handleInfoSubmit }/>
+  const closeButton = () => {
+    setIsAddressEditOn(false);
+  };
 
-          </OutsideAlerter>
-        </div>
-      </>
-    );
-  }
-  
-  export {AddressModal};
+  return (
+    <>
+      <div
+        className={`Overlay ${isAddressEditOn ? "Show" : ""}`}
+        onClick={() => setIsOpenModal(!isAddressEditOn)}>
+      </div>
+      <div className={`modalBackground ${isAddressEditOn ? "Open" : ""}`}>
+        <OutsideAlerter ref={firstRef} setIsAddressEditOn={setIsAddressEditOn}>
+          <FontAwesomeIcon
+            icon={faXmark}
+            className="closeButton"
+            onClick={closeButton}
+          />
+
+          <div className='modalTitle'>
+            <h1>Change address</h1>
+          </div>
+
+          <AddressForm handleInfoSubmit={handleInfoSubmit} />
+
+        </OutsideAlerter>
+      </div>
+    </>
+  );
+}
+
+export { AddressModal };
