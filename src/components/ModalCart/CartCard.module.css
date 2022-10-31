@@ -52,11 +52,16 @@
         text-align: right;
     }
 
+    .trash {
+        height: 100%;
+        display: flex;
+    }
+
     .delete {
         width: 25px;
         height: 25px;
         cursor: pointer;
         align-self: center;
-        margin-right: 1rem;
+        margin-right: 0 auto;
     }
 }
