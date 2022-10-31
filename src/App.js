@@ -24,8 +24,8 @@ export const App = () => {
     setIsAddressEditOn(true);
   };
 
-  const handleInfoSubmit = (e) => {
-    e.preventDefault();
+  const handleInfoSubmit = (address, apartment, extraInfo) => {
+    console.log(address, apartment, extraInfo);
     setIsAddressEditOn(false);
   };
 
