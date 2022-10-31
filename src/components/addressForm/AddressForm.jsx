@@ -53,41 +53,6 @@ const AddressForm = ({handleInfoSubmit}) => {
                     onClick={e => e.preventDefault}>Save</button>
         </form>
     );
-/*  Opens and closes fine, but doesn't get data.
-    return (
-        <form className={ styles.addressForm }>
-            <div className={ styles.inputWrapper } >
-                <label htmlFor="addressInput">Address</label>
-                <input type="text" 
-                       placeholder="Example St. 1234" 
-                       id="addressInput"
-                       name="address"
-                       autoComplete="off"
-                       spellCheck="false" />
-            </div>
-            <div className={ styles.inputWrapper } >
-                <label htmlFor="apartmentInput">Floor/Apartment</label>
-                <input type="text" 
-                       placeholder="1st floor, ap. A" 
-                       id="apartmentInput"
-                       name="aparment" 
-                       autoComplete="off"
-                       spellCheck="false"/>
-            </div>
-            <div className={ styles.inputWrapper }>
-                <label htmlFor="extraInfoInput">Extra information</label>
-                <input type="text"  
-                       id="extraInfoInput"
-                       name="extraInfo" 
-                       autoComplete="off"
-                       spellCheck="false"/>
-                
-            </div>
-            <button className={styles.formSubmit}
-                    type="submit"
-                    onClick={handleInfoSubmit}>Save</button>
-        </form>
-    );    */
 };
 
 export { AddressForm };

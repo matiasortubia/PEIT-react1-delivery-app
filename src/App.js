@@ -31,16 +31,9 @@ export const App = () => {
   };
 
   const handleInfoSubmit = (address, apartment, extraInfo) => {
-    console.log(address, apartment, extraInfo);
     setUserAddress(address);
     setIsAddressEditOn(false);
   };
-
-/*
-  useEffect(() => {
-    const timer = setTimeout(() => setIsOpenModal(!isOpenModal), 1000);
-    return () => clearTimeout(timer);
-  }, [isAddressEditOn]);*/
   
   return (
     <Router>
@@ -50,7 +43,6 @@ export const App = () => {
                                         setIsOpenModal={setIsOpenModal} 
                                         openEditAddress={openEditAddress}
                                         userInfo={userAddress} />}
-        {/*<ModalCart isOpenModal={isOpenModal} setIsOpenModal={setIsOpenModal} openEditAddress={openEditAddress} />*/}
 
         <AddressModal isAddressEditOn={isAddressEditOn} 
                       setIsAddressEditOn={setIsAddressEditOn} 

@@ -9,7 +9,6 @@
     border-radius: 10px;
     min-height: 7.75rem; /* 124px */
     display: grid;
-    /*grid-template-rows: 24px 24px;*/
     row-gap: 24px;
     grid-template-columns: auto 110px;
 

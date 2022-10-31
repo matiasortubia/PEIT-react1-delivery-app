@@ -41,23 +41,3 @@ function AddressModal({ isAddressEditOn, setIsAddressEditOn, firstRef, handleInf
   }
   
   export {AddressModal};
-  
-/*
-const AddressModal = ({closeModal, handleInfoSubmit}) => {
-    return (
-        <div className={styles.addressModalBackground}>
-            <div className='modalContainer'>
-                
-                <FontAwesomeIcon icon={faXmark} className='closeButton' onClick={ closeModal } />
-                
-                <div className='modalTitle'>
-                    <h1>Change address</h1>
-                </div>
-
-                <AddressForm handleInfoSubmit={ handleInfoSubmit }/>
-            </div>      
-        </div>
-    );
-}
-
-export { AddressModal };*/
