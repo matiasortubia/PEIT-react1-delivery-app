@@ -1,14 +1,23 @@
 import React, { useState } from 'react'
 import { useEffect } from 'react';
-import { getProductCategory, getProducts } from '../../services';
+import { getCategoryByHour } from '../../hooks&aux/getCategoryByHour';
+import { getProductCategory } from '../../services';
 import styles from './Categories.module.css'
 
-export const Categories = ({ setProducts, setLoading }) => {
+export const Categories = ({ setInitialProducts, setProducts, setLoading }) => {
     const inactiveSvgColor = '#0A191E';
     const activeSvgColor = '#F1F2F6';
-    const [ref, setRef] = useState(null)
+    const [ref, setRef] = useState(getCategoryByHour())
 
 
+    /**
+     * When a user clicks on a category, the function will set the state of the category to the id of the
+     * category that was clicked, set the loading state to true, and then fetch the products that belong
+     * to that category. 
+     * 
+     * If the user clicks on the same category again, the function will set the loading state to true,
+     * fetch all the products, set the loading state to false, and set the category state to null.
+     */
     const onClick = (e) => {
         const eId = e.target.id;
         setRef(eId)
@@ -17,44 +26,15 @@ export const Categories = ({ setProducts, setLoading }) => {
             setProducts(res)
             setLoading(false)
         })
-
-        if (ref !== null && eId === ref) {
-            setLoading(true)
-            getProducts().then(res => {
-                setProducts(res)
-                setLoading(false)
-                setRef(null)
-            })
-        }
     }
 
-    const initialCat = () => {
-        const date = new Date();
-        const hour = date.getHours();
-        if (hour >= 4 && hour < 10) {
-            return (
-                'breakfast'
-            );
-        }
-        if (hour >= 11 && hour < 14) {
-            return (
-                'lunch'
-            );
-        }
-        if (hour >= 14 && hour < 18) {
-            return (
-                'dessert'
-            );
-        }
-        if ((hour >= 18 && hour < 24) || (hour >= 0 && hour < 4)) {
-            return (
-                'dinner'
-            );
-        }
-    }
     useEffect(() => {
-
-    })
+        getProductCategory(ref).then(res => {
+            setInitialProducts(res)
+            setProducts(res.slice(0, 3))
+            setLoading(false)
+        })
+    }, [ref, setInitialProducts, setProducts, setLoading])
 
     return (
         <section className={styles.wrapper}>
