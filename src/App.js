@@ -4,7 +4,6 @@ import { Home, Header } from './components/';
 import { useGeolocation } from './hooks&aux/useGeolocation';
 import ModalCart from './components/ModalCart/ModalCart.jsx'
 import { Navbar } from './components/navbar/Navbar.jsx'
-
 import { AddressModal } from './components/addressModal/AddressModal.jsx';
 
 export const LocationContext = createContext()
@@ -18,8 +17,8 @@ export const App = () => {
 
   /* User info: */
   const [userAddress, setUserAddress] = useState("624 Mapple Ave");
-  const [userApartment, setUserApartment] = useState("");
-  const [userExtraInfo, setUserExtraInfo] = useState(""); 
+  /*const [userApartment, setUserApartment] = useState("");
+  const [userExtraInfo, setUserExtraInfo] = useState(""); */
   /* *********** */
 
   const handleOpenModal = () =>{

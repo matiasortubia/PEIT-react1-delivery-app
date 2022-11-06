@@ -17,6 +17,7 @@ const AddressForm = ({handleInfoSubmit}) => {
             <div className={ styles.inputWrapper } >
                 <label htmlFor="addressInput">Address</label>
                 <input type="text" 
+                       required
                        placeholder="Example St. 1234" 
                        id="addressInput"
                        name="address"
