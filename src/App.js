@@ -6,6 +6,7 @@ import ModalCart from './components/ModalCart/ModalCart.jsx'
 import { Navbar } from './components/navbar/Navbar.jsx'
 
 import { AddressModal } from './components/addressModal/AddressModal.jsx';
+import { PlaceOrderDone } from './components/PlaceOrderDone/PlaceOrderDone';
 
 export const LocationContext = createContext()
 
@@ -19,10 +20,10 @@ export const App = () => {
   /* User info: */
   const [userAddress, setUserAddress] = useState("624 Mapple Ave");
   const [userApartment, setUserApartment] = useState("");
-  const [userExtraInfo, setUserExtraInfo] = useState(""); 
+  const [userExtraInfo, setUserExtraInfo] = useState("");
   /* *********** */
 
-  const handleOpenModal = () =>{
+  const handleOpenModal = () => {
     setIsOpenModal(true);
   }
 
@@ -34,23 +35,24 @@ export const App = () => {
     setUserAddress(address);
     setIsAddressEditOn(false);
   };
-  
+
   return (
     <Router>
       <LocationContext.Provider value={currentLocation}>
 
-        {!isAddressEditOn && <ModalCart isOpenModal={isOpenModal} 
-                                        setIsOpenModal={setIsOpenModal} 
-                                        openEditAddress={openEditAddress}
-                                        userInfo={userAddress} />}
+        {!isAddressEditOn && <ModalCart isOpenModal={isOpenModal}
+          setIsOpenModal={setIsOpenModal}
+          openEditAddress={openEditAddress}
+          userInfo={userAddress} />}
 
-        <AddressModal isAddressEditOn={isAddressEditOn} 
-                      setIsAddressEditOn={setIsAddressEditOn} 
-                      handleInfoSubmit={handleInfoSubmit} />
+        <AddressModal isAddressEditOn={isAddressEditOn}
+          setIsAddressEditOn={setIsAddressEditOn}
+          handleInfoSubmit={handleInfoSubmit} />
 
         <Header onClick={handleOpenModal} />
         <Routes>
           <Route path='/' element={<Home />} />
+          <Route path='/success' element={<PlaceOrderDone />} />
           <Route path='*' element={<h1>404 Not Found</h1>} />
         </Routes>
         <Navbar />

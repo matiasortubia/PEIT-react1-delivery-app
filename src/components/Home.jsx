@@ -52,10 +52,9 @@ export const Home = () => {
         <div className={styles.wrapper}>
             <Searchbar onSearchSubmit={input => onSearchSubmit(input)}
                 clearResults={clearResults} />
-            <Categories products={products} setProducts={setProducts} setLoading={setLoading} />
+            <Categories setProducts={setProducts} setLoading={setLoading} />
             {loading ? <> <Skeleton /> <Skeleton /> </> : <Products id='productList' arrayProduct={products} search={restaurants} />}
             {loadSkeleton && <><Skeleton /></>}
-
         </div>
     )
 }

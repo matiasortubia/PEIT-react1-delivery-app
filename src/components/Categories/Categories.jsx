@@ -1,8 +1,9 @@
 import React, { useState } from 'react'
-import { getProductCategory } from '../../services';
+import { useEffect } from 'react';
+import { getProductCategory, getProducts } from '../../services';
 import styles from './Categories.module.css'
 
-export const Categories = ({ products, setProducts, setLoading }) => {
+export const Categories = ({ setProducts, setLoading }) => {
     const inactiveSvgColor = '#0A191E';
     const activeSvgColor = '#F1F2F6';
     const [ref, setRef] = useState(null)
@@ -19,11 +20,41 @@ export const Categories = ({ products, setProducts, setLoading }) => {
 
         if (ref !== null && eId === ref) {
             setLoading(true)
-            setProducts(products)
-            setLoading(false)
-            setRef(null)
+            getProducts().then(res => {
+                setProducts(res)
+                setLoading(false)
+                setRef(null)
+            })
         }
     }
+
+    const initialCat = () => {
+        const date = new Date();
+        const hour = date.getHours();
+        if (hour >= 4 && hour < 10) {
+            return (
+                'breakfast'
+            );
+        }
+        if (hour >= 11 && hour < 14) {
+            return (
+                'lunch'
+            );
+        }
+        if (hour >= 14 && hour < 18) {
+            return (
+                'dessert'
+            );
+        }
+        if ((hour >= 18 && hour < 24) || (hour >= 0 && hour < 4)) {
+            return (
+                'dinner'
+            );
+        }
+    }
+    useEffect(() => {
+
+    })
 
     return (
         <section className={styles.wrapper}>
