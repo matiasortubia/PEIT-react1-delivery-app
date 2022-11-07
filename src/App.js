@@ -4,7 +4,6 @@ import { Home, Header } from './components/';
 import { useGeolocation } from './hooks&aux/useGeolocation';
 import ModalCart from './components/ModalCart/ModalCart.jsx'
 import { Navbar } from './components/navbar/Navbar.jsx'
-
 import { AddressModal } from './components/addressModal/AddressModal.jsx';
 
 export const LocationContext = createContext()
@@ -17,9 +16,10 @@ export const App = () => {
   const [isAddressEditOn, setIsAddressEditOn] = useState(false);
 
   /* User info: */
+  const [userInfo, setUserInfo] = useState({"street": "Maple Ave", "addressNumber": "624", "apartment": "", "extraInfo": ""});
   const [userAddress, setUserAddress] = useState("624 Mapple Ave");
-  const [userApartment, setUserApartment] = useState("");
-  const [userExtraInfo, setUserExtraInfo] = useState(""); 
+  /*const [userApartment, setUserApartment] = useState("");
+  const [userExtraInfo, setUserExtraInfo] = useState(""); */
   /* *********** */
 
   const handleOpenModal = () =>{
@@ -30,7 +30,8 @@ export const App = () => {
     setIsAddressEditOn(true);
   };
 
-  const handleInfoSubmit = (address, apartment, extraInfo) => {
+  const handleInfoSubmit = (address, addressNumber, apartment, extraInfo) => {
+    setUserInfo({"street": address, "addressNumber": addressNumber, "apartment": apartment, "extraInfo": extraInfo});
     setUserAddress(address);
     setIsAddressEditOn(false);
   };
@@ -42,7 +43,7 @@ export const App = () => {
         {!isAddressEditOn && <ModalCart isOpenModal={isOpenModal} 
                                         setIsOpenModal={setIsOpenModal} 
                                         openEditAddress={openEditAddress}
-                                        userInfo={userAddress} />}
+                                        userInfo={userInfo} />}
 
         <AddressModal isAddressEditOn={isAddressEditOn} 
                       setIsAddressEditOn={setIsAddressEditOn} 
