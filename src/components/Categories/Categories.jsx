@@ -20,12 +20,14 @@ export const Categories = ({ setInitialProducts, setProducts, setLoading }) => {
      */
     const onClick = (e) => {
         const eId = e.target.id;
-        setRef(eId)
-        setLoading(true)
-        getProductCategory(eId).then(res => {
-            setProducts(res)
-            setLoading(false)
-        })
+        if (ref !== eId) {
+            setRef(eId)
+            setLoading(true)
+            getProductCategory(eId).then(res => {
+                setProducts(res)
+                setLoading(false)
+            })
+        }
     }
 
     useEffect(() => {

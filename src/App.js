@@ -7,6 +7,7 @@ import { Navbar } from './components/navbar/Navbar.jsx'
 
 import { AddressModal } from './components/addressModal/AddressModal.jsx';
 import { PlaceOrderDone } from './components/PlaceOrderDone/PlaceOrderDone';
+import { IntroLogo } from './components/IntroLogo/IntroLogo';
 
 export const LocationContext = createContext()
 
@@ -16,6 +17,17 @@ export const App = () => {
 
   const [isOpenModal, setIsOpenModal] = useState(false)
   const [isAddressEditOn, setIsAddressEditOn] = useState(false);
+
+  // set interval for intro app
+  const [isIntroLogo, setIsIntroLogo] = useState(true)
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setIsIntroLogo(false)
+    }, 2000)
+
+    return () => clearInterval(interval)
+  }, [])
 
   /* User info: */
   const [userAddress, setUserAddress] = useState("624 Mapple Ave");
@@ -50,8 +62,9 @@ export const App = () => {
           handleInfoSubmit={handleInfoSubmit} />
 
         <Header onClick={handleOpenModal} />
+
         <Routes>
-          <Route path='/' element={<Home />} />
+          <Route path="/" element={isIntroLogo ? <IntroLogo /> : <Home />} />
           <Route path='/success' element={<PlaceOrderDone />} />
           <Route path='*' element={<h1>404 Not Found</h1>} />
         </Routes>
