@@ -48,4 +48,4 @@ function ModalCart({ isOpenModal, setIsOpenModal, firstRef, openEditAddress, use
   );
 }
 
-export default ModalCart;
+export { ModalCart };
