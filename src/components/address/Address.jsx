@@ -2,10 +2,8 @@ import React from 'react';
 import { useState } from 'react';
 import styles from './address.module.css';
 import clockIcon from '../../assets/clock-regular.svg';
-import { useEffect } from 'react';
 
 const Address = (props) => {
-    const [streetModified, setStreetModified] = useState(props.userInfo.street);
     const [deliveryTime, setDeliveryTime] = useState("13:30");
     const [editTimeOn, setEditTimeOn] = useState(false);
     const [previousTime, setPreviousTime] = useState("");
@@ -25,13 +23,6 @@ const Address = (props) => {
         setEditTimeOn(false);
     }
 
-    useEffect(() => {
-        const auxStreet = props.userInfo.street;
-        if(auxStreet > 15) {
-            setStreetModified(auxStreet.slice(0, 14) + '&hellip;');
-        }
-    }, [props.userInfo.street]);
-    console.log(streetModified);
     return (
         <div>
             <ul className={styles.addressBox}>
