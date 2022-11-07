@@ -16,6 +16,7 @@ export const App = () => {
   const [isAddressEditOn, setIsAddressEditOn] = useState(false);
 
   /* User info: */
+  const [userInfo, setUserInfo] = useState({"street": "Maple Ave", "addressNumber": "624", "apartment": "", "extraInfo": ""});
   const [userAddress, setUserAddress] = useState("624 Mapple Ave");
   /*const [userApartment, setUserApartment] = useState("");
   const [userExtraInfo, setUserExtraInfo] = useState(""); */
@@ -29,7 +30,8 @@ export const App = () => {
     setIsAddressEditOn(true);
   };
 
-  const handleInfoSubmit = (address, apartment, extraInfo) => {
+  const handleInfoSubmit = (address, addressNumber, apartment, extraInfo) => {
+    setUserInfo({"street": address, "addressNumber": addressNumber, "apartment": apartment, "extraInfo": extraInfo});
     setUserAddress(address);
     setIsAddressEditOn(false);
   };
@@ -41,7 +43,7 @@ export const App = () => {
         {!isAddressEditOn && <ModalCart isOpenModal={isOpenModal} 
                                         setIsOpenModal={setIsOpenModal} 
                                         openEditAddress={openEditAddress}
-                                        userInfo={userAddress} />}
+                                        userInfo={userInfo} />}
 
         <AddressModal isAddressEditOn={isAddressEditOn} 
                       setIsAddressEditOn={setIsAddressEditOn} 
