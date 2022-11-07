@@ -1,4 +1,3 @@
-import { useRef, useEffect } from "react";
 import "./modalcart.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
@@ -8,11 +7,13 @@ import { CartProducts } from './CartProducts';
 import { Fee } from './Fee';
 import { TotalPrice } from "./TotalPrice";
 import { PlaceOrderButton } from "./PlaceOrderButton";
+import { CartState } from '../../CartContext/CartContext'
 
 
 
 function ModalCart({ isOpenModal, setIsOpenModal, firstRef, openEditAddress, userInfo }) {
 
+  const { state: { cart } } = CartState()
 
   const closeButton = () => {
     setIsOpenModal(false);
@@ -40,7 +41,7 @@ function ModalCart({ isOpenModal, setIsOpenModal, firstRef, openEditAddress, use
           <CartProducts />
           <Fee />
           <TotalPrice />
-          <PlaceOrderButton />
+          {cart.length > 0 && <PlaceOrderButton />}
         </OutsideAlerter>
       </div>
     </>
