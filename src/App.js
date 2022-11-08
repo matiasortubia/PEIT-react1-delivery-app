@@ -15,12 +15,7 @@ export const App = () => {
   const [isOpenModal, setIsOpenModal] = useState(false)
   const [isAddressEditOn, setIsAddressEditOn] = useState(false);
 
-  /* User info: */
   const [userInfo, setUserInfo] = useState({"street": "Maple Ave", "addressNumber": "624", "apartment": "", "extraInfo": ""});
-  const [userAddress, setUserAddress] = useState("624 Mapple Ave");
-  /*const [userApartment, setUserApartment] = useState("");
-  const [userExtraInfo, setUserExtraInfo] = useState(""); */
-  /* *********** */
 
   const handleOpenModal = () =>{
     setIsOpenModal(true);
@@ -32,7 +27,6 @@ export const App = () => {
 
   const handleInfoSubmit = (address, addressNumber, apartment, extraInfo) => {
     setUserInfo({"street": address, "addressNumber": addressNumber, "apartment": apartment, "extraInfo": extraInfo});
-    setUserAddress(address);
     setIsAddressEditOn(false);
   };
   
