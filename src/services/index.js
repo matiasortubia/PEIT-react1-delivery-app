@@ -5,4 +5,5 @@ export * from './getCart';
 export * from './postCart';
 export * from './getLikes';
 export * from './postLikes';
+export * from './deleteLike';
 export * from './deleteCartItem';

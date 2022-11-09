@@ -5,8 +5,10 @@ import styles from './products.module.css'
 import { CardModal } from '../Modal/CardModal'
 
 
-export const Products = ({ arrayProduct }) => {
+export const Products = ({ arrayProduct}) => {
+
     const [opened, setOpened] = React.useState(null)
+    
 
     return (
         <>

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { getLikes } from '../../services';
-import Card from '../Card/Card';
+import { Products } from '../Products/Products';
 
 
 export const Favs = () => {
@@ -18,11 +18,7 @@ export const Favs = () => {
 
     return (
         <div>
-            {
-                favs.map(
-                    fav => <Card key={fav.id} product={fav} />
-                )
-            }
+            <Products arrayProduct={favs} />
         </div>
     )
 }
