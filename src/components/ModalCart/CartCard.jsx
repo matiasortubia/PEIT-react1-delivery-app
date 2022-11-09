@@ -7,20 +7,23 @@ import { useSpring, animated } from '@react-spring/web';
 import { useDrag } from '@use-gesture/react';
 
 const SCREEN_WIDTH = window.innerWidth - 30;
+
 export const CartCard = ({ product, restaurants }) => {
 
 
+    /* get restaurant name by restaurantId in product */
     const restaurantName = restaurants?.find((res) => res.id === product.restaurantId)?.name
 
     const { dispatch } = CartState()
 
+
+    /* A hook that is used to animate the card swipe to delete from cart. */
     const [{ x }, api] = useSpring(() => ({ x: 0 }))
 
     const bind = useDrag(({ down, movement: [mx], direction, dragging, xy }) => {
         api.start({ x: down ? direction[0] === -1 && mx : 0 })
         if (dragging && direction[0] === -1 && mx < -SCREEN_WIDTH) {
-            dispatch({ type: "REMOVE_FROM_CART", payload: product.id })
-            deleteCartItem(product.id)
+            deleteCartItem(product.id).then(dispatch({ type: "REMOVE_FROM_CART", payload: product.id }))
         }
     })
 
