@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import styles from './CardModal.module.css'
 import cartIcon from '../../assets/cart.svg'
-import { postCart } from '../../services'
+import { postCart, postLikes } from '../../services'
 import { CartState } from '../../CartContext/CartContext'
+
 
 export const CardModal = ({ card, product, opened, setOpened, id }) => {
 
@@ -10,6 +11,7 @@ export const CardModal = ({ card, product, opened, setOpened, id }) => {
 
   const [modal, setModal] = useState(false)
   const [added, setAdded] = useState(false)
+  
 
   /* Checking if the item is in the cart. */
   useEffect(() => {
@@ -42,6 +44,10 @@ export const CardModal = ({ card, product, opened, setOpened, id }) => {
           }
         </> :
         <div className={styles.card}>
+
+          <p className={styles.like} onClick={()=>{
+            postLikes(product)
+          } }>3</p>
           <p onClick={() => { setModal(false); setOpened(null) }} className={styles.close}>X</p>
           {card}
           <button

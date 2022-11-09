@@ -7,6 +7,7 @@ import { Navbar } from './components/navbar/Navbar.jsx'
 import { AddressModal } from './components/addressModal/AddressModal.jsx';
 import { PlaceOrderDone } from './components/PlaceOrderDone/PlaceOrderDone';
 import { IntroLogo } from './components/IntroLogo/IntroLogo';
+import { Favs } from './components/Favs/Favs';
 
 export const LocationContext = createContext()
 
@@ -69,6 +70,7 @@ export const App = () => {
         <Routes>
           <Route path="/" element={isIntroLogo ? <IntroLogo /> : <Home />} />
           <Route path='/success' element={<PlaceOrderDone />} />
+          <Route path='/favs' element={<Favs />} />
           <Route path='*' element={<h1>404 Not Found</h1>} />
         </Routes>
         <Navbar />

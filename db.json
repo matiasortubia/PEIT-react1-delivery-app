@@ -158,5 +158,66 @@
       "restaurantId": 3
     }
   ],
-  "cart": []
+  "cart": [],
+  "likes": [
+    {
+      "id": 1,
+      "name": "donas",
+      "price": 25,
+      "rating": 99,
+      "category": [
+        "breakfast",
+        "dessert"
+      ],
+      "img": "https://th.bing.com/th/id/R.efa5f2d2f99535b34aca89283934d7f4?rik=CAmzLhynHzHTsQ&pid=ImgRaw&r=0",
+      "restaurantId": 1
+    },
+    {
+      "id": 10,
+      "name": "chocotorta",
+      "price": 800,
+      "rating": 91,
+      "category": [
+        "dessert"
+      ],
+      "img": "https://th.bing.com/th/id/R.7802385bf86627a874cbf883476fed1c?rik=yv3lt%2fecvsRBWA&pid=ImgRaw&r=0",
+      "restaurantId": 3
+    },
+    {
+      "id": 2,
+      "name": "Milanesa",
+      "price": 1600,
+      "rating": 100,
+      "category": [
+        "lunch",
+        "dinner"
+      ],
+      "img": "https://vinomanos.com/wp-content/uploads/2019/09/Milanesa-perfecta.jpg",
+      "restaurantId": 1
+    },
+    {
+      "id": 3,
+      "name": "Hamburguesa",
+      "price": 900,
+      "rating": 30,
+      "category": [
+        "lunch",
+        "dinner"
+      ],
+      "img": "https://th.bing.com/th/id/R.45239b0e225c231bc173114a2869773d?rik=3j%2f35HmFiM%2bLGA&pid=ImgRaw&r=0",
+      "restaurantId": 1
+    },
+    {
+      "id": 7,
+      "name": "cono de papas",
+      "price": 25,
+      "rating": 20,
+      "category": [
+        "lunch",
+        "dinner"
+      ],
+      "img": "https://assets.buendiatours.com/s3fs-public/styles/highlight_large/public/2020-05/bruselas-guia-comer-dormir-comer-patatas-fritas-cono_0.jpg?I3o9AYyyfBUxkixwFTLnc73BVi3dZP6o&itok=bZxSICnm",
+      "restaurantId": 3
+    }
+  ]
 }

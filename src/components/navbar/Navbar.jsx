@@ -21,7 +21,7 @@ export const Navbar = () => {
       <Link className="Link" to="*"> 
       <Buttons name="profile" icon={faUser}  pressed={pressed} setPressed={setPressed} />
       </Link>
-      <Link className="Link" to="*"> 
+      <Link className="Link" to="/favs"> 
       <Buttons name="favs" icon={faBookmark} pressed={pressed} setPressed={setPressed} />
       </Link>
       <Link className="Link" to="*"> 
