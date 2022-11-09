@@ -9,13 +9,10 @@ export const useInfiniteScroll = (currentPage, setCurrentPage, initialState, sta
             let elements = currentPage * 3;
             const pages = Math.ceil(initialState.length / 3);
 
-            console.log(pages, ' >0 ', currentPage, ' <= ', pages);
             if (pages > 1 && currentPage <= pages) {
                 setLoading(true);
                 const nextPage = initialState.slice(elements, elements + 3);
-                console.log(nextPage, 'nextPage');
                 setState([...state, ...nextPage]);
-                console.log(state, 'state');
                 setCurrentPage(currentPage + 1);
                 setLoading(false);
             }

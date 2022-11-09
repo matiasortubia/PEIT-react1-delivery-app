@@ -6,11 +6,12 @@
         max-height: 355px;
         height: 38vh;
         margin-bottom: 23vh;
+        touch-action: pan-y;
+        overflow-x: hidden;
     }
 
-    .wrapper {
-        touch-action: pan-y;
-        overflow-y: scroll;
+    ::-webkit-scrollbar {
+        display: none;
     }
 }
 
