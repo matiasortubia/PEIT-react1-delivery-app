@@ -4,7 +4,7 @@ import magnifyingGlassIcon from '../../assets/searchbarIcons/magnifying-glass-so
 import clearIcon from '../../assets/searchbarIcons/xmark-solid.svg';
 import styles from './searchbar.module.css';
 
-function Searchbar(props) {
+function Searchbar({onSearchSubmit}) {
     const [input, setInput] = useState('');
     const [debouncedInput, setDebouncedInput] = useState(input);
 
@@ -14,16 +14,9 @@ function Searchbar(props) {
         return () => clearTimeout(timer);
     }, [debouncedInput]);
 
-    const onSearchSubmit = props.onSearchSubmit;
-    // const clearResults = props.clearResults;
+    //const onSearchSubmit = props.onSearchSubmit;
 
     useEffect(() => {
-        /*if (input !== '') {
-            onSearchSubmit(input);
-        }
-        else {
-            clearResults();
-        }*/
         onSearchSubmit(input);
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [input]);

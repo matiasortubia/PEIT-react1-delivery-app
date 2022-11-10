@@ -12,8 +12,6 @@ export const Home = () => {
     const [loadSkeleton, setLoadSkeleton] = React.useState(null)
     const [restaurants, setRestaurants] = React.useState([]);
 
-    const [showResults, setShowResults] = React.useState(true);
-
     useInfiniteScroll(getProducts, products, setProducts, setLoadSkeleton)
 
     /* gets all products & sets the products in state */
@@ -41,31 +39,25 @@ export const Home = () => {
             getProducts(null, 'completeList')
                 .then(products => products.filter(product => product.restaurantId === restaurants[0]?.id))
                 .then(arrayProduct => setProducts(arrayProduct));
-        setLoading(false)
+        setLoading(false);
     }, [restaurants])
-/*
-    const clearResults = () => {
-        setRestaurants([]);
-    };*/
 
+    /* Renders the list of products, or a message if no results were found. */
     const renderResults = () => {
         if(restaurants.length > 0) {
-            console.log("resultss");
             return (
-                loading ? <> <Skeleton /> <Skeleton /> </> : <Products id='productList' arrayProduct={products} search={restaurants} />
+                loading ? <> <Skeleton /> <Skeleton /> </> : <Products id='productList' 
+                                                                       arrayProduct={products} 
+                                                                       search={restaurants} />
             );
-        }
-        else {
-            console.log("No results");
+        } else {
             return (
-                <div>
-                    NO RESULTS
+                <div className={styles.noResultsMessage}>
+                    <p>No restaurants were found.</p>
                 </div>
             );
         }
     }
-
-    console.log(restaurants);
 
     return (
 
