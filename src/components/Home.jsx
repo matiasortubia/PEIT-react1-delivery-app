@@ -12,9 +12,11 @@ export const Home = () => {
     const [loadSkeleton, setLoadSkeleton] = React.useState(null)
     const [restaurants, setRestaurants] = React.useState([]);
 
+    const [showResults, setShowResults] = React.useState(true);
+
     useInfiniteScroll(getProducts, products, setProducts, setLoadSkeleton)
 
-    /*get all products & setting the products in state*/
+    /* gets all products & sets the products in state */
     React.useEffect(() => {
         restaurants.length === 0 &&
             getProducts()
@@ -41,18 +43,36 @@ export const Home = () => {
                 .then(arrayProduct => setProducts(arrayProduct));
         setLoading(false)
     }, [restaurants])
-
+/*
     const clearResults = () => {
         setRestaurants([]);
-    };
+    };*/
+
+    const renderResults = () => {
+        if(restaurants.length > 0) {
+            console.log("resultss");
+            return (
+                loading ? <> <Skeleton /> <Skeleton /> </> : <Products id='productList' arrayProduct={products} search={restaurants} />
+            );
+        }
+        else {
+            console.log("No results");
+            return (
+                <div>
+                    NO RESULTS
+                </div>
+            );
+        }
+    }
+
+    console.log(restaurants);
 
     return (
 
         <div className={styles.wrapper}>
-            <Searchbar onSearchSubmit={input => onSearchSubmit(input)}
-                clearResults={clearResults} />
+            <Searchbar onSearchSubmit={input => onSearchSubmit(input)} />
             <Categories products={products} setProducts={setProducts} setLoading={setLoading} />
-            {loading ? <> <Skeleton /> <Skeleton /> </> : <Products id='productList' arrayProduct={products} search={restaurants} />}
+            {renderResults()}
             {loadSkeleton && <><Skeleton /></>}
 
         </div>

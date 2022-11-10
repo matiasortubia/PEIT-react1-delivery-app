@@ -15,15 +15,16 @@ function Searchbar(props) {
     }, [debouncedInput]);
 
     const onSearchSubmit = props.onSearchSubmit;
-    const clearResults = props.clearResults;
+    // const clearResults = props.clearResults;
 
     useEffect(() => {
-        if (input !== '') {
+        /*if (input !== '') {
             onSearchSubmit(input);
         }
         else {
             clearResults();
-        }
+        }*/
+        onSearchSubmit(input);
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [input]);
 
@@ -46,16 +47,16 @@ function Searchbar(props) {
                 <label htmlFor="searchbarInput"> {
                     debouncedInput === '' ?
 
-                        (<img className={styles.magnifyingGlassIcon}
+                        <img className={styles.magnifyingGlassIcon}
                             src={magnifyingGlassIcon}
-                            alt="Search icon" />)
+                            alt="Search icon" />
                         :
-                        (<button className={styles.clearButton}
+                        <button className={styles.clearButton}
                             onClick={clearInput}>
                             <img className={styles.clearIcon}
                                 src={clearIcon}
                                 alt="Clear icon" />
-                        </button>)
+                        </button>
                 }
                 </label>
             </div>
