@@ -1,17 +1,16 @@
-/* .wrapper {
-    position: relative;
+.wrapper {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center; }*/
+    height: 100%;
+}
 
 .noResultsMessage {
     background-color: #F1F2F6;
     height: 5rem;
     width: 85vw;
     border-radius: 10px;
-    margin: 5vh auto;
+    margin: 0 auto;
     text-align: center;
-    line-height: 5rem;
+    line-height: 2.8rem;
     font-weight: bold;
 }

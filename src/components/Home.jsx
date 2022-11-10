@@ -8,21 +8,13 @@ import { filterResults } from '../hooks&aux/filterResults';
 export const Home = () => {
 
     const [products, setProducts] = React.useState([]);
+    const [initialProducts, setInitialProducts] = React.useState([]);
+    const [page, setPage] = React.useState(1);
     const [loading, setLoading] = React.useState(true);
     const [loadSkeleton, setLoadSkeleton] = React.useState(null);
     const [restaurants, setRestaurants] = React.useState([]);
 
-    useInfiniteScroll(getProducts, products, setProducts, setLoadSkeleton);
-
-    /* gets all products & sets the products in state */
-    React.useEffect(() => {
-        restaurants.length === 0 &&
-            getProducts()
-                .then(res => {
-                    setProducts(res);
-                    setLoading(false);
-                });
-    }, [restaurants]);
+    useInfiniteScroll(page, setPage, initialProducts, products, setProducts, setLoadSkeleton);
 
     /* Updates 'restaurants' state with results that include the user's input */
     const onSearchSubmit = async input => {
@@ -59,7 +51,7 @@ export const Home = () => {
 
         <div className={styles.wrapper}>
             <Searchbar onSearchSubmit={input => onSearchSubmit(input)} />
-            <Categories products={products} setProducts={setProducts} setLoading={setLoading} />
+            <Categories setInitialProducts={setInitialProducts} setProducts={setProducts} setLoading={setLoading} />
             {loading ? <> <Skeleton /> <Skeleton /> </> : renderResults()}
             {loadSkeleton && <><Skeleton /></>}
         </div>

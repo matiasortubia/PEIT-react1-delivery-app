@@ -9,6 +9,6 @@ export const TotalPrice = () => {
     const initialValue = 0;
     const totalPrice = cart.reduce((prev, current) => prev + current.price, initialValue) + fee;
     return (
-        <span className={styles.totalPrice}>Total: ${totalPrice}</span>
+        <span className={styles.totalPrice}>Total: $ {totalPrice ? totalPrice : ' 0'}</span>
     )
 }
