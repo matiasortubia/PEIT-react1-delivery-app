@@ -19,6 +19,15 @@
     padding: 13px 12px;
 }
 
+.addressFormInput {
+    width: 48vw;
+    box-sizing: border-box;
+}
+
+.unvalidInput {
+    border-color: #e11717;
+}
+
 .inputWrapper {
     display: flex;
     flex-flow: row nowrap;

@@ -30,10 +30,6 @@ export const App = () => {
 
   /* User info: */
   const [userInfo, setUserInfo] = useState({"street": "Maple Ave", "addressNumber": "624", "apartment": "", "extraInfo": ""});
-  const [userAddress, setUserAddress] = useState("624 Mapple Ave");
-
-  /*const [userApartment, setUserApartment] = useState("");
-  const [userExtraInfo, setUserExtraInfo] = useState(""); */
 
   /* *********** */
 

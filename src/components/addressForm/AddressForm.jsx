@@ -7,18 +7,28 @@ const AddressForm = ({handleInfoSubmit}) => {
     const [addressNumber, setAddressNumber] = useState('');
     const [apartmentText, setApartmentText] = useState('');
     const [extraInfoText, setExtraInfotext] = useState('');
+    const [isValidInput, setIsValidInput] = useState({"street": true, "addressNumber": true, "apartmentText": true, "extraInfo": true});
 
-    // TODO: Validate whitespaces, numbers
+    /* Input validations */
+    const validateOnlyLetters = input => {
+        return input !== '' && (/^[A-Za-z\s]*$/.test(input));
+    };
+    /* **************** */
+
     const infoSubmit = e => {
         e.preventDefault();
-        handleInfoSubmit(addressText, addressNumber, apartmentText, extraInfoText);
+        const addressTrimmed = addressText.trim();
+        let isValidStreet = validateOnlyLetters(addressTrimmed);
+        setIsValidInput({street: isValidStreet});
+        isValidStreet && handleInfoSubmit(addressTrimmed, addressNumber, apartmentText, extraInfoText);
     };
 
     return (
         <form className={ styles.addressForm } onSubmit={infoSubmit}>
             <div className={ styles.inputWrapper } >
                 <label htmlFor="addressInput">Street</label>
-                <input type="text" 
+                <input className={ `${ styles.addressFormInput } ${ isValidInput.street ? "" : styles.unvalidInput }` }
+                       type="text" 
                        required
                        placeholder="Example St." 
                        id="addressInput"
