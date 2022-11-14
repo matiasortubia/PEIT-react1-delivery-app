@@ -2,31 +2,31 @@ import React, { createContext, useEffect, useState } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { Home, Header } from './components/';
 import { useGeolocation } from './hooks&aux/useGeolocation';
-import ModalCart from './components/ModalCart/ModalCart.jsx'
-import { Navbar } from './components/navbar/Navbar.jsx'
+import ModalCart from './components/ModalCart/ModalCart.jsx';
+import { Navbar } from './components/navbar/Navbar.jsx';
 import { AddressModal } from './components/addressModal/AddressModal.jsx';
 import { PlaceOrderDone } from './components/PlaceOrderDone/PlaceOrderDone';
 import { IntroLogo } from './components/IntroLogo/IntroLogo';
 
-export const LocationContext = createContext()
+export const LocationContext = createContext();
 
 export const App = () => {
   /* A custom hook that is used to get the user's location. */
   const currentLocation = useGeolocation();
 
-  const [isOpenModal, setIsOpenModal] = useState(false)
+  const [isOpenModal, setIsOpenModal] = useState(false);
   const [isAddressEditOn, setIsAddressEditOn] = useState(false);
 
   // set interval for intro app
-  const [isIntroLogo, setIsIntroLogo] = useState(true)
+  const [isIntroLogo, setIsIntroLogo] = useState(true);
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setIsIntroLogo(false)
-    }, 2000)
+      setIsIntroLogo(false);
+    }, 2000);
 
-    return () => clearInterval(interval)
-  }, [])
+    return () => clearInterval(interval);
+  }, []);
 
   /* User info: */
   const [userInfo, setUserInfo] = useState({"street": "Maple Ave", "addressNumber": "624", "apartment": "", "extraInfo": ""});
@@ -35,7 +35,7 @@ export const App = () => {
 
   const handleOpenModal = () => {
     setIsOpenModal(true);
-  }
+  };
 
   const openEditAddress = () => {
     setIsAddressEditOn(true);
