@@ -11,7 +11,7 @@ const AddressForm = ({handleInfoSubmit}) => {
 
     /* Input validations */
     const validateOnlyLetters = input => {
-        return input !== '' && (/^[A-Za-zÀ-ÖØ-öø-ÿ]*$/.test(input));
+        return input !== '' && (/^[(A-Za-zÀ-ÖØ-öø-ÿ)|.|']*$/.test(input));
     };
     /* **************** */
 
