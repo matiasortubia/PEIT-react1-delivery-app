@@ -27,7 +27,7 @@ const AddressForm = ({handleInfoSubmit}) => {
         <form className={ styles.addressForm } onSubmit={infoSubmit}>
             <div className={ styles.inputWrapper } >
                 <label htmlFor="addressInput">Street</label>
-                <input className={ `${ styles.addressFormInput } ${ isValidInput.street ? "" : styles.unvalidInput }` }
+                <input className={ `${ styles.addressFormInput } ${ isValidInput.street ? "" : styles.invalidInput }` }
                        type="text" 
                        required
                        placeholder="Example St." 
@@ -66,7 +66,7 @@ const AddressForm = ({handleInfoSubmit}) => {
             </div>
             <div className={ styles.inputWrapper }>
                 <label htmlFor="extraInfoInput">Extra information</label>
-                <input type="text"  
+                <textarea className={styles.addressTextArea}
                        placeholder="Ex: Flat on a corner"
                        id="extraInfoInput"
                        name="extraInfo" 
