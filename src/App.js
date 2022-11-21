@@ -31,6 +31,8 @@ export const App = () => {
   /* User info: */
   const [userInfo, setUserInfo] = useState({"street": "Maple Ave", "addressNumber": "624", "apartment": "", "extraInfo": ""});
 
+  /* *********** */
+
   const handleOpenModal = () => {
     setIsOpenModal(true);
   };
