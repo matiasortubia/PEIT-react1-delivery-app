@@ -8,6 +8,7 @@ const AddressForm = ({handleInfoSubmit}) => {
     const [apartmentText, setApartmentText] = useState('');
     const [extraInfoText, setExtraInfotext] = useState('');
 
+    // TODO: Validate whitespaces, numbers
     const infoSubmit = e => {
         e.preventDefault();
         handleInfoSubmit(addressText, addressNumber, apartmentText, extraInfoText);
