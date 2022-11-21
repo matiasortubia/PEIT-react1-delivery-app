@@ -23,27 +23,26 @@ const AddressForm = ({handleInfoSubmit}) => {
         },
         validationSchema: Yup.object().shape({
             addressStreet: Yup.string()
-                .max(30, "Street name can't be longer than 30 characters.")
-                .required("Address street is required."),
+                .max(30, "Street name is too long.")
+                .required("Field required.")
+                //.matches(/^[A-Za-zÀ-ÖØ-öø-ÿ]+$/, "Invalid input."),
+                .matches(/^[-@'À-ÖØ-öø-ÿ.\/#&\w\s]*$/, "Invalid input."),
             addressNumber: Yup.number()
-                .min(1, "Address number can't be less than 1.")
+                .min(1, "Invalid input.")
                 .max(9999, "Address number is too high.")
-                .required("Address Number is required."),
+                .required("Field required."),
             appartment: Yup.string()
                 .max(20),
-            city: Yup.string()
-                .max(30)
-                .required("City is required"),
-            country: Yup.string()
-                .max(30)
-                .required("Country is required"),
             extraInfo: Yup.string()
                 .max(250)
         }),
         onSubmit: (values) => {
             console.log(values);
             const trimmedAddress = values.addressStreet.trim();
-            handleInfoSubmit(trimmedAddress, values.addressNumber, values.appartment, "extra info");
+            trimmedAddress !== '' && handleInfoSubmit(trimmedAddress, 
+                                                      values.addressNumber, 
+                                                      values.appartment, 
+                                                      values.extraInfo);
         }
     });
 
@@ -65,12 +64,19 @@ const AddressForm = ({handleInfoSubmit}) => {
         <form onSubmit={ formik.handleSubmit } className={ styles.addressForm }>
             {/* Address Street Input */}
             <div className={ styles.inputWrapper } >
-                <label htmlFor="addressStreet">
-                    { formik.touched.addressStreet && formik.errors.addressStreet ? formik.errors.addressStreet : "Street" }
-                </label>
+                <div className={ styles.labelsWrapper }>
+                    <label htmlFor="addressStreet">
+                        Street
+                    </label>
+                    { formik.touched.addressStreet && formik.errors.addressStreet &&
+                    <label className={ styles.invalidInputMessage } htmlFor="addressStreet">
+                        {formik.errors.addressStreet}
+                    </label> }
+                </div>
                 <input className={ styles.addressFormInput }
                        name="addressStreet"
                        type="text"
+                       maxLength="25"
                        value={ formik.values.addressStreet }
                        onChange={ formik.handleChange }
                        onBlur={ formik.handleBlur }
@@ -78,52 +84,48 @@ const AddressForm = ({handleInfoSubmit}) => {
             </div>
             {/* Address Number Input */}
             <div className={ styles.inputWrapper } >
-                <label htmlFor="addressNumber">Address Number</label>
+                <div className={ styles.labelsWrapper }>
+                    <label htmlFor="addressNumber">
+                        Address Number
+                    </label>
+                    { formik.touched.addressNumber && formik.errors.addressNumber &&
+                    <label className={ styles.invalidInputMessage } htmlFor="addressNumber">
+                        {formik.errors.addressNumber}
+                    </label> }
+                </div>
                 <input className={ styles.addressFormInput }
                        name="addressNumber"
                        type="number"
+                       min="1"
+                       max="9999"
                        value={ formik.values.addressNumber }
                        onChange={ formik.handleChange }
                        onBlur={ formik.handleBlur }
                        placeholder="1234" />
             </div>
-
             {/* Appartment Input */}
             <div className={ styles.inputWrapper } >
                 <label htmlFor="appartment">Floor/Appartment</label>
                 <input className={ styles.addressFormInput }
                        name="appartment"
                        type="text"
+                       maxLength="20"
                        value={ formik.values.appartment }
                        onChange={ formik.handleChange }
                        onBlur={ formik.handleBlur }
                        placeholder="1st floor, ap. A" />
             </div>
-
-            {/* City Input */}
+            {/* Extra info */}
             <div className={ styles.inputWrapper } >
-                <label htmlFor="city">City</label>
-                <input className={ styles.addressFormInput }
-                       name="city"
-                       type="text"
-                       value={ formik.values.city }
+                <label htmlFor="extraInfo">Extra info</label>
+                <textarea className={ styles.addressTextArea }
+                       name="extraInfo"
+                       maxLength={200}
+                       value={ formik.values.extraInfo }
                        onChange={ formik.handleChange }
                        onBlur={ formik.handleBlur }
-                       placeholder="City" />
+                       placeholder="Ex: flat on a corner" />
             </div>
-
-            {/* Country Input */}
-            <div className={ styles.inputWrapper } >
-                <label htmlFor="country">Country</label>
-                <input className={ styles.addressFormInput }
-                       name="country"
-                       type="text"
-                       value={ formik.values.country }
-                       onChange={ formik.handleChange }
-                       onBlur={ formik.handleBlur }
-                       placeholder="Country" />
-            </div>
-
             <button className={styles.formSubmit}
                     type='submit'>Save</button>
 
