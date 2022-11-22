@@ -7,8 +7,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart as solidHeart } from '@fortawesome/free-solid-svg-icons'
 import { faHeart as regularHeart } from '@fortawesome/free-regular-svg-icons'
 
-
-
 export const CardModal = ({ card, product, opened, setOpened, id }) => {
 
   const { state: { cart }, dispatch } = CartState()
@@ -17,11 +15,16 @@ export const CardModal = ({ card, product, opened, setOpened, id }) => {
   const [added, setAdded] = useState(false)
   const [liked, setLiked] = useState(false)
   
-
   /* Checking if the item is in the cart. */
   useEffect(() => {
     cart.find(({ id }) => id === product.id) ? setAdded(true) : setAdded(false)
   }, [cart, product])
+
+  /* Checks if the item is in favourites. */
+  useEffect(() => {
+    getLikes()
+    .then(likes => likes.find(({ id }) => id === product.id) ? setLiked(true) : setLiked(false));
+  }, [product]);
 
   // checking if modal is open
   useEffect(() => {
