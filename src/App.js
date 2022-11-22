@@ -1,12 +1,7 @@
 import React, { createContext, useEffect, useState } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import { Home, Header } from './components/';
+import { Home, Navbar, AddressModal, PlaceOrderDone, IntroLogo, Profile, ModalCart } from './components'
 import { useGeolocation } from './hooks&aux/useGeolocation';
-import ModalCart from './components/ModalCart/ModalCart.jsx';
-import { Navbar } from './components/navbar/Navbar.jsx';
-import { AddressModal } from './components/addressModal/AddressModal.jsx';
-import { PlaceOrderDone } from './components/PlaceOrderDone/PlaceOrderDone';
-import { IntroLogo } from './components/IntroLogo/IntroLogo';
 import { Favs } from './components/Favs/Favs';
 
 export const LocationContext = createContext();
@@ -32,8 +27,6 @@ export const App = () => {
   /* User info: */
   const [userInfo, setUserInfo] = useState({"street": "Maple Ave", "addressNumber": "624", "apartment": "", "extraInfo": ""});
 
-  /* *********** */
-
   const handleOpenModal = () => {
     setIsOpenModal(true);
   };
@@ -51,21 +44,20 @@ export const App = () => {
     <Router>
       <LocationContext.Provider value={currentLocation}>
 
-        {!isAddressEditOn && <ModalCart isOpenModal={isOpenModal} 
-                                        setIsOpenModal={setIsOpenModal} 
-                                        openEditAddress={openEditAddress}
-                                        userInfo={userInfo} />}
+        {!isAddressEditOn && <ModalCart isOpenModal={isOpenModal}
+          setIsOpenModal={setIsOpenModal}
+          openEditAddress={openEditAddress}
+          userInfo={userInfo} />}
 
         <AddressModal isAddressEditOn={isAddressEditOn}
           setIsAddressEditOn={setIsAddressEditOn}
           handleInfoSubmit={handleInfoSubmit} />
 
-        <Header onClick={handleOpenModal} />
-
         <Routes>
-          <Route path="/" element={isIntroLogo ? <IntroLogo /> : <Home />} />
+          <Route path="/" element={isIntroLogo ? <IntroLogo /> : <Home handleOpenModal={handleOpenModal} />} />
           <Route path='/success' element={<PlaceOrderDone />} />
-          <Route path='/favs' element={<Favs />} />
+          <Route path='/favs' element={<Favs handleOpenModal={handleOpenModal} />} />
+          <Route path='/profile' element={<Profile />} />
           <Route path='*' element={<h1>404 Not Found</h1>} />
         </Routes>
         <Navbar />
@@ -73,5 +65,3 @@ export const App = () => {
     </Router>
   );
 }
-
-

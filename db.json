@@ -24,16 +24,13 @@
   ],
   "categories": [
     {
-      "id": 1,
-      "name": "dinner"
+      "id": "dinner"
     },
     {
-      "id": 2,
-      "name": "lunch"
+      "id": "lunch"
     },
     {
-      "id": 3,
-      "name": "breakfast"
+      "id": "breakfast"
     },
     {
       "id": 4,

@@ -29,7 +29,6 @@ const AddressForm = ({handleInfoSubmit}) => {
                 .max(250)
         }),
         onSubmit: (values) => {
-            console.log(values);
             const trimmedAddress = values.addressStreet.trim();
             trimmedAddress !== '' && handleInfoSubmit(trimmedAddress, 
                                                       values.addressNumber, 

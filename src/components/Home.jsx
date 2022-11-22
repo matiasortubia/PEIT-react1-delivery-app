@@ -1,12 +1,12 @@
 import React from 'react';
-import { Searchbar, Categories, Products, Skeleton } from './index';
+import { Searchbar, Categories, Products, Skeleton, Header } from './index';
 import { getProducts, getRestaurants } from '../services';
 import styles from './home.module.css';
 import { useInfiniteScroll } from '../hooks&aux/useInfiniteScroll';
 import { filterResults } from '../hooks&aux/filterResults';
 import { getTitleByHour } from '../hooks&aux/getTitleByHour'
 
-export const Home = () => {
+export const Home = ({ handleOpenModal }) => {
 
     const [products, setProducts] = React.useState([]);
     const [initialProducts, setInitialProducts] = React.useState([]);
@@ -51,8 +51,9 @@ export const Home = () => {
     return (
 
         <div className={styles.wrapper}>
+            <Header onClick={handleOpenModal} />
             <Searchbar onSearchSubmit={input => onSearchSubmit(input)} />
-            <Categories setInitialProducts={setInitialProducts} setProducts={setProducts} setLoading={setLoading} />
+            <Categories pagination={{setPage}} setInitialProducts={setInitialProducts} setProducts={setProducts} setLoading={setLoading} />
             {getTitleByHour()}
             {loading ? <> <Skeleton /> <Skeleton /> </> : renderResults()}
             {loadSkeleton && <><Skeleton /></>}
