@@ -3,46 +3,39 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { Home, Navbar, AddressModal, PlaceOrderDone, IntroLogo, Profile, ModalCart } from './components'
 import { useGeolocation } from './hooks&aux/useGeolocation';
 
-export const LocationContext = createContext()
+export const LocationContext = createContext();
 
 export const App = () => {
   /* A custom hook that is used to get the user's location. */
   const currentLocation = useGeolocation();
 
-  const [isOpenModal, setIsOpenModal] = useState(false)
+  const [isOpenModal, setIsOpenModal] = useState(false);
   const [isAddressEditOn, setIsAddressEditOn] = useState(false);
 
   // set interval for intro app
-  const [isIntroLogo, setIsIntroLogo] = useState(true)
+  const [isIntroLogo, setIsIntroLogo] = useState(true);
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setIsIntroLogo(false)
-    }, 2000)
+      setIsIntroLogo(false);
+    }, 2000);
 
-    return () => clearInterval(interval)
-  }, [])
+    return () => clearInterval(interval);
+  }, []);
 
   /* User info: */
-  const [userInfo, setUserInfo] = useState({ "street": "Maple Ave", "addressNumber": "624", "apartment": "", "extraInfo": "" });
-  // const [userAddress, setUserAddress] = useState("624 Mapple Ave");
-
-  /*const [userApartment, setUserApartment] = useState("");
-  const [userExtraInfo, setUserExtraInfo] = useState(""); */
-
-  /* *********** */
+  const [userInfo, setUserInfo] = useState({"street": "Maple Ave", "addressNumber": "624", "apartment": "", "extraInfo": ""});
 
   const handleOpenModal = () => {
     setIsOpenModal(true);
-  }
+  };
 
   const openEditAddress = () => {
     setIsAddressEditOn(true);
   };
 
   const handleInfoSubmit = (address, addressNumber, apartment, extraInfo) => {
-    setUserInfo({ "street": address, "addressNumber": addressNumber, "apartment": apartment, "extraInfo": extraInfo });
-    // setUserAddress(address);
+    setUserInfo({"street": address, "addressNumber": addressNumber, "apartment": apartment, "extraInfo": extraInfo});
     setIsAddressEditOn(false);
   };
 
@@ -59,8 +52,6 @@ export const App = () => {
           setIsAddressEditOn={setIsAddressEditOn}
           handleInfoSubmit={handleInfoSubmit} />
 
-
-
         <Routes>
           <Route path="/" element={isIntroLogo ? <IntroLogo /> : <Home handleOpenModal={handleOpenModal} />} />
           <Route path='/success' element={<PlaceOrderDone />} />
@@ -72,5 +63,3 @@ export const App = () => {
     </Router>
   );
 }
-
-

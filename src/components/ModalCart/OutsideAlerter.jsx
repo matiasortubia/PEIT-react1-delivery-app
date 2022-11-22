@@ -29,7 +29,7 @@ export const OutsideAlerter = (props) => {
 
     
   return (
-    <div className="modalContainer" ref={firstRef} setIsOpenModal={setIsOpenModal} >
+    <div className="modalContainer" ref={firstRef} >
         {props.children}
     </div>
   )
