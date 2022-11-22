@@ -4,6 +4,7 @@ import { getProducts, getRestaurants } from '../services'
 import styles from './home.module.css'
 import { useInfiniteScroll } from '../hooks&aux/useInfiniteScroll'
 import { filterResults } from '../hooks&aux/filterResults';
+import { getTitleByHour } from '../hooks&aux/getTitleByHour'
 
 export const Home = () => {
 
@@ -45,6 +46,7 @@ export const Home = () => {
             <Searchbar onSearchSubmit={input => onSearchSubmit(input)}
                 clearResults={clearResults} />
             <Categories setInitialProducts={setInitialProducts} setProducts={setProducts} setLoading={setLoading} />
+            {getTitleByHour()}
             {loading ? <> <Skeleton /> <Skeleton /> </> : <Products id='productList' arrayProduct={products} search={restaurants} />}
             {loadSkeleton && <><Skeleton /></>}
         </div>

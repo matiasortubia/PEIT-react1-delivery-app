@@ -9,7 +9,12 @@
     }
 
     .title {
+        position: relative;
         font-size: 16px;
         line-height: 0px;
+        bottom: 35px;
+        right: 55px;
+        margin: 0.5rem auto;
     }
+
 }

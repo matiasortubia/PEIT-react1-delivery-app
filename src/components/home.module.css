@@ -3,3 +3,16 @@
     flex-direction: column;
     height: 100%;
 }
+
+.flexContainer {
+    display: flex;
+    position: relative;
+    bottom: 35px;
+    justify-content: center;
+    padding-right: 30vw;
+}
+
+.titleWrapper {
+    background-color: red;
+}
+
