@@ -1,0 +1,23 @@
+.favsTitle {
+    display: inline-block;
+    background-color: #fff;
+    font-size: 1.4rem;
+    font-weight: 500;
+    position: relative;
+    bottom: 30px;
+    margin-left: 30px;
+    width: 200px;
+}
+
+.noResultsMessage {
+    background-color: #F1F2F6;
+    height: 5rem;
+    width: 85vw;
+    padding: 5px 5px;
+    border-radius: 10px;
+    margin: 0 auto;
+    text-align: center;
+    line-height: 1.5rem;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+}
