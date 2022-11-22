@@ -155,5 +155,6 @@
       "restaurantId": 3
     }
   ],
-  "cart": []
+  "cart": [],
+  "likes": []
 }

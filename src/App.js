@@ -2,6 +2,7 @@ import React, { createContext, useEffect, useState } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { Home, Navbar, AddressModal, PlaceOrderDone, IntroLogo, Profile, ModalCart } from './components'
 import { useGeolocation } from './hooks&aux/useGeolocation';
+import { Favs } from './components/Favs/Favs';
 
 export const LocationContext = createContext();
 
@@ -55,6 +56,7 @@ export const App = () => {
         <Routes>
           <Route path="/" element={isIntroLogo ? <IntroLogo /> : <Home handleOpenModal={handleOpenModal} />} />
           <Route path='/success' element={<PlaceOrderDone />} />
+          <Route path='/favs' element={<Favs handleOpenModal={handleOpenModal} />} />
           <Route path='/profile' element={<Profile />} />
           <Route path='*' element={<h1>404 Not Found</h1>} />
         </Routes>

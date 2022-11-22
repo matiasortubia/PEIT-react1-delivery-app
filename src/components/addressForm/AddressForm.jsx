@@ -54,6 +54,8 @@ const AddressForm = ({handleInfoSubmit}) => {
                        name="addressStreet"
                        type="text"
                        maxLength="25"
+                       autoComplete="off"
+                       spellCheck="false"
                        value={ formik.values.addressStreet }
                        onChange={ formik.handleChange }
                        onBlur={ formik.handleBlur }
@@ -75,6 +77,7 @@ const AddressForm = ({handleInfoSubmit}) => {
                        type="number"
                        min="1"
                        max="9999"
+                       autoComplete="off"
                        value={ formik.values.addressNumber }
                        onChange={ formik.handleChange }
                        onBlur={ formik.handleBlur }
@@ -87,6 +90,8 @@ const AddressForm = ({handleInfoSubmit}) => {
                        name="appartment"
                        type="text"
                        maxLength="20"
+                       autoComplete="off"
+                       spellCheck="off"
                        value={ formik.values.appartment }
                        onChange={ formik.handleChange }
                        onBlur={ formik.handleBlur }
@@ -98,6 +103,7 @@ const AddressForm = ({handleInfoSubmit}) => {
                 <textarea className={ styles.addressTextArea }
                        name="extraInfo"
                        maxLength={200}
+                       spellCheck="false"
                        value={ formik.values.extraInfo }
                        onChange={ formik.handleChange }
                        onBlur={ formik.handleBlur }

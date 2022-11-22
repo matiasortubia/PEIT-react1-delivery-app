@@ -4,6 +4,7 @@ import { getProducts, getRestaurants } from '../services';
 import styles from './home.module.css';
 import { useInfiniteScroll } from '../hooks&aux/useInfiniteScroll';
 import { filterResults } from '../hooks&aux/filterResults';
+import { getTitleByHour } from '../hooks&aux/getTitleByHour'
 
 export const Home = ({ handleOpenModal }) => {
 
@@ -53,7 +54,8 @@ export const Home = ({ handleOpenModal }) => {
             <Header onClick={handleOpenModal} />
             <Searchbar onSearchSubmit={input => onSearchSubmit(input)} />
             <Categories pagination={{setPage}} setInitialProducts={setInitialProducts} setProducts={setProducts} setLoading={setLoading} />
-            {loading ? <> <Skeleton /> <Skeleton /> </> : <Products id='productList' arrayProduct={products} search={restaurants} />}
+            {getTitleByHour()}
+            {loading ? <> <Skeleton /> <Skeleton /> </> : renderResults()}
             {loadSkeleton && <><Skeleton /></>}
         </div>
     )

@@ -20,11 +20,7 @@ export const Buttons = ({ name, icon, pressed, setPressed }) => {
       setPressed(name);
 
     }
-    //  else {
-    //   setIsActive(false);
-    //   setPressed(null);
-    // }
-
+ 
   };
 
   useEffect(() => {

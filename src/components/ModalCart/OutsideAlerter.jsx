@@ -1,36 +1,36 @@
 import { useEffect, useRef } from 'react'
 
-  /*
-    Hook that alerts clicks outside of the passed ref
-   */
+/*
+  Hook that alerts clicks outside of the passed ref
+ */
 
-const useOutsideAlerter = (firstRef,setIsOpenModal) => {
+const useOutsideAlerter = (firstRef, setIsOpenModal) => {
 
-    const handleClickOutside = (e) => {
-        if (firstRef.current && !firstRef.current.contains(e.target)) {
-          setIsOpenModal(false);
-        } 
-      };
-
-    useEffect(() => {
-      document.addEventListener("mousedown", handleClickOutside);
-      return ()=>{
-        document.addEventListener("mousedown", handleClickOutside);
-      }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    },[firstRef]);
+  const handleClickOutside = (e) => {
+    if (firstRef.current && !firstRef.current.contains(e.target)) {
+      setIsOpenModal(false);
+    }
   };
 
-export const OutsideAlerter = (props) => {
+  useEffect(() => {
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.addEventListener("mousedown", handleClickOutside);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [firstRef]);
+};
 
-    const {setIsOpenModal}  = props;
-    const firstRef = useRef(null);
-    useOutsideAlerter(firstRef, setIsOpenModal);
+export const OutsideAlerter = ({setIsOpenModal,children}) => {
 
-    
+  //const { setIsOpenModal } = props;
+  const firstRef = useRef(null);
+  useOutsideAlerter(firstRef, setIsOpenModal);
+
+
   return (
     <div className="modalContainer" ref={firstRef} >
-        {props.children}
+      {children}
     </div>
   )
 }
