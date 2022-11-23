@@ -1,6 +1,30 @@
-/* .wrapper {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center; }*/
+@media screen and (max-width: 768px) {
+    .wrapper {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        animation: slide 0.200s;
+    }
+
+    @keyframes slide {
+        0% {
+            transform: translateX(-100%);
+
+        }
+
+        100% {
+            transform: translateX(0);
+        }
+    }
+}
+
+.noResultsMessage {
+    background-color: #F1F2F6;
+    height: 5rem;
+    width: 85vw;
+    border-radius: 10px;
+    margin: 0 auto;
+    text-align: center;
+    line-height: 2.8rem;
+    font-weight: bold;
+}

@@ -1,0 +1,57 @@
+.searchbar {
+    margin: 16px;
+    background-color: #F1F2F6;
+    border-radius: 10px;
+
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+}
+
+.searchbar input {
+    box-sizing: border-box;
+    height: 2.56rem; /* 41px */
+    width: 100%;
+    padding: 13px 12px;
+    border-radius: 10px;
+    border: none;
+    background-color: inherit;
+    
+    font-family: inherit;
+    font-size: 0.75rem; /* 12px */
+}
+
+.searchbar input::placeholder {
+   color: #000;
+}
+
+.searchbar input:focus {
+    outline: none;
+} 
+
+.magnifyingGlassIcon, .clearIcon {
+    height: 0.78rem; /* 12.44px */
+    margin-left: auto;
+    margin-right: 15.56px;
+}
+
+.clearButton {
+    padding: 0;
+    height: 2.56rem;
+    padding-left: 0.9rem;
+    border: none;
+}
+
+@media (min-width: 1280px) {
+    .searchbarContainer {
+        display: flex;
+        justify-content: center;
+    }
+      
+    .searchbar {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        width: 60%;
+    }
+  }

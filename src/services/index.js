@@ -3,3 +3,7 @@ export * from './getCategories';
 export * from './getProducts';
 export * from './getCart';
 export * from './postCart';
+export * from './getLikes';
+export * from './postLikes';
+export * from './deleteLike';
+export * from './deleteCartItem';

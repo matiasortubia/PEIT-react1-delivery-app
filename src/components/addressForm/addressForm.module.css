@@ -1,0 +1,67 @@
+.addressForm {
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 20px;
+}
+
+.addressForm input,
+.formSubmit {
+    border-radius: 10px;
+    font: inherit;
+    height: 2.35rem; /* 41px */
+    padding: 13px 12px;
+}
+
+.addressFormInput {
+    width: 85vw;
+    box-sizing: border-box;
+    border: none;
+    border-bottom: 1px solid #000;
+}
+
+.addressTextArea {
+    width: 85vw;
+    box-sizing: border-box;
+    border-radius: 10px;
+    border-bottom: 2px solid #000;
+    font: inherit;
+    height: 15vh;
+    padding: 13px 12px;
+}
+
+.labelsWrapper {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+}
+
+.invalidInputMessage {
+    color: #ff2020;
+    margin-left: 2rem;
+}
+
+
+.inputWrapper {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: flex-start;
+    margin-left: 15px;
+    gap: 0.3rem;
+}
+
+.formSubmit {
+    background: #22cd33;
+    color: #fff;
+    font-weight: bold;
+    display: inline-block;
+    border-radius: 16px;
+    border: none;
+    padding: 1.5rem;
+    width: fit-content;
+    line-height: 0;
+    margin-left: auto;
+    position: relative;
+    bottom: 12px;
+    right: 20px;
+}

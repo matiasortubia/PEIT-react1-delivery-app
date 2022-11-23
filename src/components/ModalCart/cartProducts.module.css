@@ -1,0 +1,23 @@
+@media screen and (max-width:767px) {
+    .wrapper {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        max-height: 355px;
+        height: 38vh;
+        margin-bottom: 23vh;
+        touch-action: pan-y;
+        overflow-x: hidden;
+    }
+
+    ::-webkit-scrollbar {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 375px) {
+    .wrapper {
+        height: 35%;
+        margin-bottom: 23.5vh;
+    }
+}
